@@ -1,0 +1,45 @@
+baseURL: "/"
+languageCode: "en-us"
+title: "AnarchyGames"
+
+params:
+  tagline: "Open-source games & apps"
+  description: "AnarchyGames — open-source game and app development."
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: monokai
+
+taxonomies:
+  tag: tags
+
+menu:
+  main:
+    - name: "Projects"
+      url: "/projects/"
+      weight: 1
+    - name: "Blog"
+      url: "/blog/"
+      weight: 2
+    - name: "Videos"
+      url: "/videos/"
+      weight: 3
+
+buildDrafts: false
+buildFuture: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  section:
+    - HTML
+    - RSS
+    - JSON
+
+permalinks:
+  blog: "/blog/:year/:month/:slug/"

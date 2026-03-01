@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="container">
+  <div class="page-header">
+    <h1>Projects</h1>
+    <p>Games, tools, and experiments — all open source.</p>
+  </div>
+
+  <div class="project-grid">
+    {{- range .Pages.ByWeight }}
+    <div class="project-card">
+      <div class="project-card-header">
+        <div class="project-card-icon">{{ .Params.icon | default "&#128187;" | safeHTML }}</div>
+        <div>
+          <h3>{{ .Title }}</h3>
+          <span class="status-badge status-{{ .Params.status | default "active" }}">{{ .Params.status | default "active" }}</span>
+        </div>
+      </div>
+      <p class="description">{{ .Description }}</p>
+      <div class="tags">
+        {{- range .Params.tech }}
+        <span class="tag">{{ . }}</span>
+        {{- end }}
+      </div>
+      <div class="links">
+        {{- with .Params.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+        {{- end }}
+        {{- with .Params.demo }}
+        <a href="{{ . }}" target="_blank" rel="noopener">Live Demo</a>
+        {{- end }}
+        {{- with .Params.url }}
+        <a href="{{ . }}">Details</a>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+  </div>
+</div>
+{{ end }}

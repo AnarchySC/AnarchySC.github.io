@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a href="{{ "/" | relURL }}" class="site-logo">Anarchy<span>Games</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.site-nav').classList.toggle('open')">&#9776;</button>
+    <nav class="site-nav">
+      {{- range .Site.Menus.main }}
+      <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+      <a href="https://github.com/AnarchySC" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>

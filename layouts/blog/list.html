@@ -1,0 +1,47 @@
+{{ define "main" }}
+<div class="container">
+  <div class="page-header">
+    <h1>Blog</h1>
+    <p>Dev logs, write-ups, and whatever else.</p>
+  </div>
+
+  <div class="blog-search">
+    <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off">
+  </div>
+
+  <div class="blog-list" id="blog-list">
+    {{- range .Pages.ByDate.Reverse }}
+    <article class="blog-item" data-title="{{ .Title | lower }}" data-tags="{{ delimit .Params.tags "," | lower }}">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      <div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ with .Summary }}<p class="summary">{{ . | plainify | truncate 120 }}</p>{{ end }}
+      </div>
+      {{- with .Params.tags }}
+      <div class="blog-tags">
+        {{- range . }}
+        <span class="tag">{{ . }}</span>
+        {{- end }}
+      </div>
+      {{- end }}
+    </article>
+    {{- else }}
+    <div class="empty-state">
+      <div class="icon">&#128221;</div>
+      <p>No posts yet. Check back soon.</p>
+    </div>
+    {{- end }}
+  </div>
+</div>
+
+<script>
+document.getElementById('search-input')?.addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  document.querySelectorAll('.blog-item').forEach(function(item) {
+    const title = item.dataset.title || '';
+    const tags = item.dataset.tags || '';
+    item.style.display = (title.includes(q) || tags.includes(q)) ? '' : 'none';
+  });
+});
+</script>
+{{ end }}

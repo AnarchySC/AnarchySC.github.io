@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="container">
+  <section class="hero">
+    <h1>Anarchy<span>Games</span></h1>
+    <p class="tagline">{{ .Site.Params.tagline }}</p>
+  </section>
+
+  <section class="section-tiles">
+    <a href="{{ "projects/" | relURL }}" class="section-tile">
+      <div class="tile-icon">&#9881;</div>
+      <h2>Projects</h2>
+      <p>Games, tools, and experiments — all open source.</p>
+    </a>
+    <a href="{{ "blog/" | relURL }}" class="section-tile">
+      <div class="tile-icon">&#9998;</div>
+      <h2>Blog</h2>
+      <p>Dev logs, write-ups, and whatever else.</p>
+    </a>
+    <a href="{{ "videos/" | relURL }}" class="section-tile">
+      <div class="tile-icon">&#9654;</div>
+      <h2>Videos</h2>
+      <p>Tutorials, demos, and devlogs on video.</p>
+    </a>
+  </section>
+</div>
+{{ end }}

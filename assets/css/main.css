@@ -329,7 +329,7 @@ main { flex: 1; }
 
 /* ─── Hero ──────────────────────────────────────────────────────────────── */
 .hero {
-  padding: 10rem 0 3rem;
+  padding: 8.5rem 0 3rem;
   text-align: center;
   position: relative;
 }

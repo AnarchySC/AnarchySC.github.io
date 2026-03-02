@@ -3,11 +3,16 @@
   <div class="page-header">
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    <div class="tri-divider page-divider">
+      <span class="d-blue"></span>
+      <span class="d-orange"></span>
+      <span class="d-gold"></span>
+    </div>
   </div>
   <div class="blog-list">
     {{- range .Pages.ByDate.Reverse }}
     <article class="blog-item">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
       <div>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
       </div>

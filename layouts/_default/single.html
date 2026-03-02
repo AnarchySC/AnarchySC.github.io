@@ -4,7 +4,7 @@
     <h1>{{ .Title }}</h1>
     {{- with .Date }}
     <div class="post-meta">
-      <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "January 2, 2006" }}</time>
+      <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2006.01.02" }}</time>
     </div>
     {{- end }}
     <div class="post-body">

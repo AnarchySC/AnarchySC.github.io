@@ -1,8 +1,14 @@
 {{ define "main" }}
 <div class="container">
   <div class="page-header">
+    <span class="page-label">Tape</span>
     <h1>Videos</h1>
-    <p>Tutorials, demos, and devlogs on video.</p>
+    <p>Tutorials, demos, and devlogs captured on tape.</p>
+    <div class="tri-divider page-divider">
+      <span class="d-blue"></span>
+      <span class="d-orange"></span>
+      <span class="d-gold"></span>
+    </div>
   </div>
 
   <div class="video-grid">
@@ -20,13 +26,13 @@
       </div>
       <div class="video-info">
         <h3><a href="{{ with .Params.youtube }}{{ . }}{{ else }}{{ $.RelPermalink }}{{ end }}" {{ with .Params.youtube }}target="_blank" rel="noopener"{{ end }}>{{ .Title }}</a></h3>
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
       </div>
     </div>
     {{- else }}
     <div class="empty-state">
-      <div class="icon">&#127909;</div>
-      <p>No videos yet. Check back soon.</p>
+      <div class="icon">&mdash;</div>
+      <p>No tapes yet. Check back soon.</p>
     </div>
     {{- end }}
   </div>

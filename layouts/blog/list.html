@@ -1,8 +1,14 @@
 {{ define "main" }}
 <div class="container">
   <div class="page-header">
+    <span class="page-label">Signal</span>
     <h1>Blog</h1>
-    <p>Dev logs, write-ups, and whatever else.</p>
+    <p>Dev logs, write-ups, and transmissions from the workshop.</p>
+    <div class="tri-divider page-divider">
+      <span class="d-blue"></span>
+      <span class="d-orange"></span>
+      <span class="d-gold"></span>
+    </div>
   </div>
 
   <div class="blog-search">
@@ -12,7 +18,7 @@
   <div class="blog-list" id="blog-list">
     {{- range .Pages.ByDate.Reverse }}
     <article class="blog-item" data-title="{{ .Title | lower }}" data-tags="{{ delimit .Params.tags "," | lower }}">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
       <div>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         {{ with .Summary }}<p class="summary">{{ . | plainify | truncate 120 }}</p>{{ end }}
@@ -27,8 +33,8 @@
     </article>
     {{- else }}
     <div class="empty-state">
-      <div class="icon">&#128221;</div>
-      <p>No posts yet. Check back soon.</p>
+      <div class="icon">&mdash;</div>
+      <p>No transmissions yet. Check back soon.</p>
     </div>
     {{- end }}
   </div>

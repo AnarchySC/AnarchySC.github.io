@@ -1,25 +1,29 @@
 {{ define "main" }}
 <div class="container">
   <section class="hero">
-    <h1>Anarchy<span>Games</span></h1>
-    <p class="tagline">{{ .Site.Params.tagline }}</p>
+    <span class="hero-label">// Open-Source Games &amp; Apps</span>
+    <h1><span class="logo-a">A</span>narchy<span class="accent">Games</span></h1>
+    <p class="tagline">Building things that should exist.</p>
   </section>
 
   <section class="section-tiles">
     <a href="{{ "projects/" | relURL }}" class="section-tile">
-      <div class="tile-icon">&#9881;</div>
+      <span class="tile-label">01 // Builds</span>
       <h2>Projects</h2>
-      <p>Games, tools, and experiments — all open source.</p>
+      <p>Games, tools, and experiments. All open source, all free.</p>
+      <span class="tile-arrow">&rarr;</span>
     </a>
     <a href="{{ "blog/" | relURL }}" class="section-tile">
-      <div class="tile-icon">&#9998;</div>
+      <span class="tile-label">02 // Signal</span>
       <h2>Blog</h2>
-      <p>Dev logs, write-ups, and whatever else.</p>
+      <p>Dev logs, write-ups, and transmissions from the workshop.</p>
+      <span class="tile-arrow">&rarr;</span>
     </a>
     <a href="{{ "videos/" | relURL }}" class="section-tile">
-      <div class="tile-icon">&#9654;</div>
+      <span class="tile-label">03 // Tape</span>
       <h2>Videos</h2>
-      <p>Tutorials, demos, and devlogs on video.</p>
+      <p>Tutorials, demos, and devlogs captured on tape.</p>
+      <span class="tile-arrow">&rarr;</span>
     </a>
   </section>
 </div>

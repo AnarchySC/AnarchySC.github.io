@@ -911,6 +911,12 @@ main { flex: 1; }
   text-shadow: 0 0 10px rgba(74, 122, 181, 0.6), 0 0 25px rgba(74, 122, 181, 0.25);
 }
 
+.status-released {
+  border-color: rgba(0, 200, 170, 0.5);
+  color: rgba(0, 200, 170, 0.9);
+  text-shadow: 0 0 10px rgba(0, 200, 170, 0.6), 0 0 25px rgba(0, 200, 170, 0.25);
+}
+
 /* ─── Blog — Holographic List ──────────────────────────────────────────── */
 .blog-search {
   margin-bottom: 2rem;

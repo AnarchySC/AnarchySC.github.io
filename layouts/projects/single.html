@@ -1,0 +1,335 @@
+{{ define "main" }}
+<div class="container">
+  <article class="product-page">
+
+    <!-- Hero -->
+    <div class="product-hero">
+      <span class="status-badge status-{{ .Params.status | default "active" }}">{{ .Params.status | default "active" }}</span>
+      <h1 class="product-title">{{ .Title }}</h1>
+      <p class="product-tagline">{{ .Description }}</p>
+      {{- with .Params.cta_url }}
+      <div class="product-cta">
+        <a href="{{ . }}" class="product-btn primary" target="_blank" rel="noopener">{{ $.Params.cta_label | default "Download" }}</a>
+        {{- with $.Params.github }}
+        <a href="{{ . }}" class="product-btn secondary" target="_blank" rel="noopener">Source Code</a>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+
+    <!-- Content body -->
+    <div class="product-body">
+      {{ .Content }}
+    </div>
+
+    <!-- Footer CTA -->
+    {{- with .Params.cta_url }}
+    <div class="product-footer-cta">
+      <a href="{{ . }}" class="product-btn primary" target="_blank" rel="noopener">{{ $.Params.cta_label | default "Download" }}</a>
+      {{- with $.Params.support_url }}
+      <a href="{{ . }}" class="product-btn support" target="_blank" rel="noopener">Support Development</a>
+      {{- end }}
+    </div>
+    {{- end }}
+
+  </article>
+</div>
+
+<style>
+/* ─── Product Page ──────────────────────────────────────────── */
+
+.product-hero {
+  text-align: center;
+  padding: 4rem 0 3rem;
+  position: relative;
+}
+
+.product-hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  animation: beam-breathe 6s ease-in-out infinite;
+}
+
+.product-title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon-cyan);
+  text-shadow:
+    0 0 20px rgba(0, 212, 255, 0.5),
+    0 0 60px rgba(0, 212, 255, 0.2);
+  margin: 1rem 0 0.5rem;
+  animation: chromatic-shift 8s infinite;
+  position: relative;
+}
+
+.product-tagline {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.product-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.product-btn.primary {
+  color: var(--bg);
+  background: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.product-btn.primary:hover {
+  box-shadow:
+    0 0 20px rgba(0, 212, 255, 0.6),
+    0 0 40px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.product-btn.secondary {
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.product-btn.secondary:hover {
+  color: var(--neon-orange);
+  border-color: rgba(232, 93, 4, 0.4);
+  text-shadow: 0 0 10px rgba(232, 93, 4, 0.3);
+}
+
+.product-btn.support {
+  color: var(--neon-amber);
+  border: 1px solid rgba(250, 163, 7, 0.3);
+}
+
+.product-btn.support:hover {
+  border-color: rgba(250, 163, 7, 0.6);
+  text-shadow: 0 0 10px rgba(250, 163, 7, 0.4);
+}
+
+/* ─── Product Body ──────────────────────────────────────────── */
+
+.product-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.product-body h2 {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon-orange);
+  text-shadow: 0 0 10px rgba(232, 93, 4, 0.4);
+  border-left: 2px solid var(--neon-orange);
+  padding-left: 1rem;
+  margin: 3rem 0 1.5rem;
+}
+
+.product-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--text);
+  margin: 2rem 0 0.75rem;
+}
+
+.product-body p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.product-body ul, .product-body ol {
+  color: var(--text-muted);
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-body li {
+  margin-bottom: 0.35rem;
+}
+
+.product-body strong {
+  color: var(--text);
+}
+
+.product-body code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--neon-amber);
+  background: rgba(250, 163, 7, 0.08);
+  padding: 0.15em 0.4em;
+}
+
+.product-body pre {
+  background: rgba(10, 14, 24, 0.8);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.product-body pre code {
+  background: none;
+  padding: 0;
+  color: var(--text);
+}
+
+.product-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.product-body th {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--neon-cyan);
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.product-body td {
+  color: var(--text-muted);
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid rgba(20, 28, 46, 0.5);
+}
+
+/* Feature grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+
+.feature-card:hover {
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.feature-card h4 {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--neon-cyan);
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Hotkey display */
+.hotkey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.hotkey {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.hotkey kbd {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--neon-amber);
+  background: rgba(250, 163, 7, 0.1);
+  border: 1px solid rgba(250, 163, 7, 0.2);
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+}
+
+.hotkey span {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Platform badges */
+.platform-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.platform-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+
+.platform-badge:hover {
+  color: var(--neon-cyan);
+  border-color: rgba(0, 212, 255, 0.3);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+/* Footer CTA */
+.product-footer-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 3rem 0 4rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .product-title { font-size: 2.5rem; }
+  .product-cta { flex-direction: column; align-items: center; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .hotkey-grid { grid-template-columns: 1fr; }
+}
+</style>
+{{ end }}

@@ -1,0 +1,825 @@
+{{ define "main" }}
+<div class="elephcinema-page">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="badge">v2.0 &#8212; VAAPI Edition</div>
+    <div class="logo-ascii">&#9608;&#9600;&#9608; &#9608;   &#9608;&#9600;&#9608; &#9608;&#9608;&#9608; &#9608;&#9608;&#9608;
+&#9608;&#9604;  &#9608;   &#9608;&#9604;  &#9608;&#9608;&#9608; &#9608;&#9608;&#9608;
+&#9608;&#9600;&#9608; &#9608;&#9604;&#9604; &#9608;&#9600;&#9608; &#9608;   &#9608;</div>
+    <h1 class="hero-title">
+      <span class="accent">Insert</span> disc.<br>
+      Walk away.<br>
+      <span class="dim-line">// fully automated rip &amp; encode</span>
+    </h1>
+    <p class="hero-desc">
+      Automated Blu-ray and DVD ripping pipeline for Linux. One disc,
+      one dialog, one encoded MP4 on your NAS. VAAPI hardware encoding.
+      Parallel TV episodes. Zero babysitting.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://github.com/AnarchySC/elephcinema/releases/latest" class="btn-primary">&#8595; Download</a>
+      <a href="https://github.com/AnarchySC/elephcinema" class="btn-ghost">View Source &#8594;</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="app-window">
+      <div class="titlebar">
+        <div class="titlebar-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="titlebar-title">elephcinema</div>
+        <div class="titlebar-status">
+          <span>&#9654;</span>
+          <span>RUNNING</span>
+        </div>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="term-lines" id="termLines"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="ec-section">
+  <div class="section-label">// core.features</div>
+  <h2 class="section-title">From tray to NAS without touching a terminal.</h2>
+  <div class="features-grid">
+    <div class="ec-feature-card">
+      <span class="feature-icon">&#127916;</span>
+      <div class="feature-name">VAAPI Hardware Encode</div>
+      <p class="feature-desc">HEVC encoding on your AMD/Intel GPU. 10&#215; faster than CPU. Constant quality mode preserves every detail.</p>
+    </div>
+    <div class="ec-feature-card">
+      <span class="feature-icon">&#9889;</span>
+      <div class="feature-name">Parallel TV Episodes</div>
+      <p class="feature-desc">Encode 3 episodes simultaneously. A full season disc finishes in minutes, not hours.</p>
+    </div>
+    <div class="ec-feature-card">
+      <span class="feature-icon">&#128421;</span>
+      <div class="feature-name">Smart Detection</div>
+      <p class="feature-desc">Auto-classifies Movie vs TV. You pick the titles from a visual checklist. No more encoding trailers.</p>
+    </div>
+    <div class="ec-feature-card">
+      <span class="feature-icon">&#128190;</span>
+      <div class="feature-name">Verified NAS Copy</div>
+      <p class="feature-desc">Every encode is validated with ffprobe before and after copy. Bit-perfect or it retries.</p>
+    </div>
+    <div class="ec-feature-card">
+      <span class="feature-icon">&#128274;</span>
+      <div class="feature-name">Stale Lock Recovery</div>
+      <p class="feature-desc">Dead process left a lock? Auto-detected and recovered. No more manual cleanup.</p>
+    </div>
+    <div class="ec-feature-card">
+      <span class="feature-icon">&#128203;</span>
+      <div class="feature-name">Full Diagnostics</div>
+      <p class="feature-desc">MakeMKV and ffmpeg logs captured to disk. When something fails, you know exactly why.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section class="pipeline-section">
+  <div>
+    <div class="section-label">// pipeline.flow</div>
+    <h2 class="section-title">Three steps. Fully automated.</h2>
+    <p class="pipeline-desc">
+      Insert a disc and the udev rule fires. MakeMKV rips every title to local
+      storage. A classification step identifies Movie vs TV, you confirm via a
+      quick dialog, then ffmpeg VAAPI encodes everything in parallel. The finished
+      MP4 is validated and copied to your NAS. The disc ejects. You never touched
+      the keyboard.
+    </p>
+  </div>
+  <div class="pipeline-diagram">
+    <div class="pipe-row">
+      <div class="pipe-box pipe-trigger">INSERT DISC</div>
+      <div class="pipe-arrow">&#8594;</div>
+      <div class="pipe-box pipe-trigger">UDEV TRIGGER</div>
+      <div class="pipe-arrow">&#8594;</div>
+      <div class="pipe-box pipe-rip">MAKEMKV RIP ALL</div>
+    </div>
+    <div class="pipe-row pipe-row-return">
+      <div class="pipe-box pipe-done">EJECT + NAS COPY</div>
+      <div class="pipe-arrow">&#8592;</div>
+      <div class="pipe-box pipe-encode">VAAPI ENCODE</div>
+      <div class="pipe-arrow">&#8592;</div>
+      <div class="pipe-box pipe-classify">CLASSIFY + DIALOG</div>
+    </div>
+    <div class="pipe-connector">&#8595;</div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs-section">
+  <div class="section-label">// tech.specs</div>
+  <h2 class="section-title">Built on battle-tested Linux tools.</h2>
+  <div class="specs-grid">
+    <div class="spec-card">
+      <div class="spec-env">Ripping</div>
+      <div class="spec-title">MakeMKV</div>
+      <p class="spec-desc">LibreDrive-compatible. Single invocation rips all titles. Supports 4K UHD, Blu-ray, and DVD.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-env">Encoding</div>
+      <div class="spec-title">ffmpeg VAAPI</div>
+      <p class="spec-desc">Hardware HEVC on AMD (hevc_vaapi). CQP mode: QP 24 for Blu-ray, QP 20 for DVD. Audio stream copy.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-env">Automation</div>
+      <div class="spec-title">udev + systemd</div>
+      <p class="spec-desc">Disc insertion triggers the full pipeline via udev rules. Cooldown prevents re-triggers. Runs as your user.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRE-FOOTER CTA -->
+<section class="ec-final-cta">
+  <div class="section-label">// get.started</div>
+  <h2 class="section-title">Ready to automate your disc library?</h2>
+  <div class="hero-ctas" style="margin-top: 32px;">
+    <a href="https://github.com/AnarchySC/elephcinema/releases/latest" class="btn-primary">&#8595; Download</a>
+    <a href="https://github.com/AnarchySC/elephcinema" class="btn-ghost">View Source &#8594;</a>
+    <a href="https://ko-fi.com/cassettefuture" class="btn-ghost">Support Development &#8594;</a>
+  </div>
+</section>
+
+</div><!-- /.elephcinema-page -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&display=swap');
+
+/* ─── SCOPED VARIABLES ────────────────────────────── */
+.elephcinema-page {
+  --ec-bg: #0a0c0f;
+  --ec-surface: #111418;
+  --ec-border: #1e2530;
+  --ec-border-bright: #2a3545;
+  --ec-text: #c8d4e0;
+  --ec-dim: #5a6a7a;
+  --ec-accent: #E85D04;
+  --ec-accent2: #00d4ff;
+  --ec-accent3: #7bf1a8;
+  --ec-amber: #ffb703;
+  --ec-glow-orange: rgba(232, 93, 4, 0.15);
+  --ec-glow-cyan: rgba(0, 212, 255, 0.1);
+
+  position: relative;
+  font-family: 'JetBrains Mono', var(--font-mono), monospace;
+  color: var(--ec-text);
+  line-height: 1.6;
+}
+
+/* Scanline overlay */
+.elephcinema-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ─── HERO ─────────────────────────────────────────── */
+.elephcinema-page .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 85vh;
+  position: relative;
+  padding: 0;
+  text-align: left;
+}
+
+.elephcinema-page .hero::before { display: none; }
+
+.elephcinema-page .hero-left {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--ec-border);
+  position: relative;
+  z-index: 2;
+}
+
+.elephcinema-page .hero-left::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, var(--ec-glow-orange), transparent 60%);
+  pointer-events: none;
+}
+
+.elephcinema-page .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ec-accent);
+  border: 1px solid var(--ec-accent);
+  padding: 4px 12px;
+  margin-bottom: 32px;
+  width: fit-content;
+  animation: ecFadeSlideIn 0.6s ease both;
+}
+
+.elephcinema-page .badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--ec-accent);
+  border-radius: 50%;
+  animation: ecPulse 2s infinite;
+}
+
+@keyframes ecPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.elephcinema-page .logo-ascii {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ec-accent);
+  margin-bottom: 24px;
+  opacity: 0.6;
+  animation: ecFadeSlideIn 0.6s 0.1s ease both;
+  white-space: pre;
+}
+
+.elephcinema-page .hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  animation: ecFadeSlideIn 0.6s 0.2s ease both;
+  text-shadow: none;
+  text-transform: none;
+  color: var(--ec-text);
+}
+
+.elephcinema-page .hero-title .accent { color: var(--ec-accent); }
+.elephcinema-page .hero-title .dim-line {
+  color: var(--ec-dim);
+  font-size: 0.6em;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 0.05em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.elephcinema-page .hero-desc {
+  font-size: 14px;
+  color: var(--ec-dim);
+  max-width: 420px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  animation: ecFadeSlideIn 0.6s 0.3s ease both;
+}
+
+.elephcinema-page .hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  animation: ecFadeSlideIn 0.6s 0.4s ease both;
+}
+
+.elephcinema-page .btn-primary {
+  background: var(--ec-accent);
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.elephcinema-page .btn-primary:hover {
+  background: #ff7519;
+  box-shadow: 0 0 20px var(--ec-glow-orange);
+  transform: translateY(-1px);
+}
+
+.elephcinema-page .btn-ghost {
+  background: transparent;
+  color: var(--ec-text);
+  border: 1px solid var(--ec-border-bright);
+  padding: 12px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.elephcinema-page .btn-ghost:hover {
+  border-color: var(--ec-accent2);
+  color: var(--ec-accent2);
+  box-shadow: 0 0 15px var(--ec-glow-cyan);
+}
+
+/* ─── TERMINAL MOCKUP ────────────────────────────── */
+.elephcinema-page .hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.elephcinema-page .hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, var(--ec-glow-cyan), transparent 60%);
+  pointer-events: none;
+}
+
+.elephcinema-page .app-window {
+  width: 100%;
+  max-width: 480px;
+  background: var(--ec-surface);
+  border: 1px solid var(--ec-border-bright);
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,0.1),
+    0 40px 80px rgba(0,0,0,0.6),
+    0 0 60px rgba(0,212,255,0.05);
+  animation: ecFadeSlideIn 0.8s 0.5s ease both;
+  position: relative;
+}
+
+.elephcinema-page .app-window::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 20px; right: 20px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ec-accent2), transparent);
+}
+
+.elephcinema-page .titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #0d1117;
+  border-bottom: 1px solid var(--ec-border);
+  user-select: none;
+}
+
+.elephcinema-page .titlebar-dots { display: flex; gap: 6px; }
+.elephcinema-page .dot { width: 10px; height: 10px; border-radius: 50%; }
+.elephcinema-page .dot-r { background: #ff5f57; }
+.elephcinema-page .dot-y { background: #ffbd2e; }
+.elephcinema-page .dot-g { background: #28c840; }
+
+.elephcinema-page .titlebar-title {
+  font-size: 11px;
+  color: var(--ec-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.elephcinema-page .titlebar-status {
+  font-size: 11px;
+  color: var(--ec-accent3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.terminal-body {
+  padding: 16px;
+  min-height: 340px;
+  font-size: 11px;
+  line-height: 1.6;
+  background: #0d1117;
+  overflow: hidden;
+}
+
+.term-lines .term-line {
+  opacity: 0;
+  transform: translateY(4px);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.term-lines .term-line.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.term-line.term-prompt { color: var(--ec-accent3); }
+.term-line.term-bar { color: var(--ec-accent); opacity: 0.5; }
+.term-line.term-bar.visible { opacity: 0.5; }
+.term-line.term-header { color: var(--ec-accent2); font-weight: 600; }
+.term-line.term-info { color: var(--ec-dim); }
+.term-line.term-success { color: var(--ec-accent3); }
+.term-line.term-highlight { color: var(--ec-amber); }
+.term-line.term-done { color: var(--ec-accent); font-weight: 700; }
+.term-line.term-blank { height: 8px; }
+
+.term-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  background: var(--ec-accent3);
+  vertical-align: text-bottom;
+  animation: ecBlink 1s step-end infinite;
+}
+
+@keyframes ecBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── FEATURES SECTION ────────────────────────────── */
+.ec-section {
+  border-top: 1px solid var(--ec-border);
+  padding: 100px 60px;
+  position: relative;
+}
+
+.elephcinema-page .section-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ec-accent2);
+  margin-bottom: 16px;
+}
+
+.elephcinema-page .section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 60px;
+  max-width: 600px;
+  line-height: 1.1;
+  color: var(--ec-text);
+  text-transform: none;
+  text-shadow: none;
+  text-align: left;
+  border: none;
+  padding: 0;
+}
+
+.elephcinema-page .features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ec-border);
+}
+
+.ec-feature-card {
+  background: var(--ec-bg);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  border: none;
+}
+
+.ec-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.ec-feature-card:hover {
+  background: var(--ec-surface);
+}
+
+.ec-feature-card:hover::before {
+  background: var(--ec-accent);
+}
+
+.elephcinema-page .feature-icon {
+  font-size: 28px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.elephcinema-page .feature-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--ec-text);
+}
+
+.elephcinema-page .feature-desc {
+  font-size: 12px;
+  color: var(--ec-dim);
+  line-height: 1.8;
+}
+
+/* ─── PIPELINE SECTION ───────────────────────────── */
+.pipeline-section {
+  border-top: 1px solid var(--ec-border);
+  padding: 100px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.pipeline-desc {
+  font-size: 13px;
+  color: var(--ec-dim);
+  max-width: 400px;
+  line-height: 1.8;
+}
+
+.pipeline-diagram {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pipe-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pipe-row-return {
+  flex-direction: row;
+}
+
+.pipe-connector {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  color: var(--ec-dim);
+  font-size: 18px;
+  display: none;
+}
+
+.pipe-box {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border: 1px solid var(--ec-border-bright);
+  background: var(--ec-surface);
+  white-space: nowrap;
+  transition: all 0.3s;
+  text-align: center;
+  flex: 1;
+}
+
+.pipe-box:hover {
+  transform: translateY(-2px);
+}
+
+.pipe-box.pipe-trigger {
+  border-color: rgba(123,241,168,0.3);
+  color: var(--ec-accent3);
+}
+
+.pipe-box.pipe-trigger:hover {
+  box-shadow: 0 0 12px rgba(123,241,168,0.15);
+}
+
+.pipe-box.pipe-rip {
+  border-color: rgba(0,212,255,0.3);
+  color: var(--ec-accent2);
+}
+
+.pipe-box.pipe-rip:hover {
+  box-shadow: 0 0 12px var(--ec-glow-cyan);
+}
+
+.pipe-box.pipe-classify {
+  border-color: rgba(255,183,3,0.3);
+  color: var(--ec-amber);
+}
+
+.pipe-box.pipe-classify:hover {
+  box-shadow: 0 0 12px rgba(255,183,3,0.15);
+}
+
+.pipe-box.pipe-encode {
+  border-color: rgba(232,93,4,0.3);
+  color: var(--ec-accent);
+}
+
+.pipe-box.pipe-encode:hover {
+  box-shadow: 0 0 12px var(--ec-glow-orange);
+}
+
+.pipe-box.pipe-done {
+  border-color: rgba(123,241,168,0.3);
+  color: var(--ec-accent3);
+}
+
+.pipe-box.pipe-done:hover {
+  box-shadow: 0 0 12px rgba(123,241,168,0.15);
+}
+
+.pipe-arrow {
+  color: var(--ec-dim);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* ─── SPECS SECTION ──────────────────────────────── */
+.specs-section {
+  border-top: 1px solid var(--ec-border);
+  padding: 100px 60px;
+  background: var(--ec-surface);
+  position: relative;
+}
+
+.specs-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(232,93,4,0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.spec-card {
+  padding: 28px;
+  border: 1px solid var(--ec-border);
+  background: var(--ec-bg);
+  transition: all 0.2s;
+}
+
+.spec-card:hover {
+  border-color: var(--ec-accent);
+  box-shadow: 0 0 20px var(--ec-glow-orange);
+  transform: translateY(-2px);
+}
+
+.spec-env {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ec-accent);
+  margin-bottom: 8px;
+}
+
+.spec-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ec-text);
+}
+
+.spec-desc {
+  font-size: 11px;
+  color: var(--ec-dim);
+  line-height: 1.7;
+}
+
+/* ─── FINAL CTA ───────────────────────────────────── */
+.ec-final-cta {
+  border-top: 1px solid var(--ec-border);
+  padding: 100px 60px;
+  text-align: center;
+}
+
+.ec-final-cta .section-title {
+  max-width: none;
+  text-align: center;
+}
+
+.ec-final-cta .hero-ctas {
+  justify-content: center;
+}
+
+/* ─── ANIMATIONS ──────────────────────────────────── */
+@keyframes ecFadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .elephcinema-page .hero { grid-template-columns: 1fr; min-height: auto; }
+  .elephcinema-page .hero-left { border-right: none; border-bottom: 1px solid var(--ec-border); }
+  .elephcinema-page .features-grid { grid-template-columns: 1fr; }
+  .pipeline-section { grid-template-columns: 1fr; }
+  .specs-grid { grid-template-columns: 1fr; }
+  .pipe-row { flex-wrap: wrap; justify-content: center; }
+  .ec-section, .pipeline-section, .specs-section, .ec-final-cta {
+    padding: 60px 24px;
+  }
+  .elephcinema-page .hero-left, .elephcinema-page .hero-right { padding: 40px 24px; }
+}
+</style>
+
+<script>
+(function() {
+  var lines = [
+    { text: '$ elephcinema /dev/sr2', cls: 'term-prompt' },
+    { text: '', cls: 'term-blank' },
+    { text: '\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593', cls: 'term-bar' },
+    { text: '#  STEP 1: RIPPING ALL TITLES  #', cls: 'term-header' },
+    { text: '\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593', cls: 'term-bar' },
+    { text: '>>> Ripping: 100%    \u2713', cls: 'term-success' },
+    { text: 'Ripped 6 titles in 2318s (39GB)', cls: 'term-info' },
+    { text: '', cls: 'term-blank' },
+    { text: '\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593', cls: 'term-bar' },
+    { text: '#  STEP 2: ANALYZING CONTENT   #', cls: 'term-header' },
+    { text: '\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593', cls: 'term-bar' },
+    { text: 'Classified as Movie (6 files)', cls: 'term-highlight' },
+    { text: '', cls: 'term-blank' },
+    { text: '\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593', cls: 'term-bar' },
+    { text: '#  STEP 3: ENCODING (VAAPI)    #', cls: 'term-header' },
+    { text: '\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593', cls: 'term-bar' },
+    { text: '>>> Encoding: 100%    \u2713', cls: 'term-success' },
+    { text: '>>> Saved: 38GB \u2192 4.3GB', cls: 'term-success' },
+    { text: '', cls: 'term-blank' },
+    { text: '\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593', cls: 'term-bar' },
+    { text: '#  DONE!                       #', cls: 'term-done' },
+    { text: '\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593', cls: 'term-bar' }
+  ];
+
+  var container = document.getElementById('termLines');
+  if (!container) return;
+
+  // Create all line elements
+  var els = [];
+  for (var i = 0; i < lines.length; i++) {
+    var div = document.createElement('div');
+    div.className = 'term-line ' + lines[i].cls;
+    if (lines[i].text) {
+      div.textContent = lines[i].text;
+    }
+    container.appendChild(div);
+    els.push(div);
+  }
+
+  // Add cursor at end
+  var cursorSpan = document.createElement('span');
+  cursorSpan.className = 'term-cursor';
+  var lastLine = els[els.length - 1];
+
+  // Typing animation: reveal lines one by one
+  var lineIndex = 0;
+  var typeDelay = 800; // initial delay
+
+  function revealNext() {
+    if (lineIndex >= els.length) {
+      // Add blinking cursor after last line
+      lastLine.appendChild(document.createTextNode(' '));
+      lastLine.appendChild(cursorSpan);
+      return;
+    }
+    els[lineIndex].classList.add('visible');
+    lineIndex++;
+
+    // Vary speed: prompt line is slower, bars are fast, content is medium
+    var delay = 120;
+    if (lineIndex === 1) delay = 400; // after prompt
+    if (els[lineIndex - 1] && els[lineIndex - 1].classList.contains('term-blank')) delay = 80;
+    if (els[lineIndex - 1] && els[lineIndex - 1].classList.contains('term-header')) delay = 300;
+    if (els[lineIndex - 1] && els[lineIndex - 1].classList.contains('term-success')) delay = 350;
+    if (els[lineIndex - 1] && els[lineIndex - 1].classList.contains('term-done')) delay = 500;
+
+    setTimeout(revealNext, delay);
+  }
+
+  setTimeout(revealNext, typeDelay);
+})();
+</script>
+{{ end }}

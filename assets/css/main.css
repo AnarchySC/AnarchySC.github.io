@@ -718,6 +718,12 @@ main { flex: 1; }
   margin-bottom: 4rem;
 }
 
+a.project-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 .project-card {
   --tile-rgb: 232, 93, 4;
   background: radial-gradient(
@@ -869,13 +875,16 @@ main { flex: 1; }
   text-transform: uppercase;
 }
 
-.project-card .links a {
+.project-card .links a,
+.project-card .links .project-link {
   color: rgba(0, 212, 255, 0.65);
   text-shadow: 0 0 8px rgba(0, 212, 255, 0.3), 0 0 20px rgba(0, 212, 255, 0.1);
   transition: color 0.3s, text-shadow 0.3s;
+  cursor: pointer;
 }
 
-.project-card .links a:hover {
+.project-card .links a:hover,
+.project-card .links .project-link:hover {
   color: var(--neon-cyan);
   text-shadow:
     0 0 12px rgba(0, 212, 255, 0.8),

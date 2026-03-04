@@ -813,9 +813,11 @@ a.project-card {
 }
 
 .project-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.95);
   text-shadow:
     0 0 8px rgba(255, 255, 255, 0.6),

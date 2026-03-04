@@ -8,3 +8,4 @@ status: "released"
 tech: ["Bash", "MakeMKV", "ffmpeg VAAPI", "udev"]
 github: "https://github.com/AnarchySC/elephcinema"
 ---
+<!-- product page rendered by layouts/projects/elephcinema.html -->

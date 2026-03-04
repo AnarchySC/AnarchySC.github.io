@@ -1,0 +1,1084 @@
+{{ define "main" }}
+<div class="oblysk-page">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="badge">v2.1.1 — Now Available</div>
+    <div class="logo-ascii">█▀▀█ █▀▀▄ █    █  █ █▀▀ █ ▄█
+█  █ █▀▀▄ █    █▄▄█ ▀▀█ █▀▄
+▀▀▀▀ ▀▀▀▀ ▀▀▀▀ ▄▄▄▀ ▀▀▀ ▀ ▀</div>
+    <h1 class="hero-title">
+      <span class="accent">Clipboard</span><br>
+      Evolved.<br>
+      <span class="dim-line">// for the terminal-native</span>
+    </h1>
+    <p class="hero-desc">
+      A 9-cell grid clipboard manager that works where others fail —
+      VMware consoles, AWS CloudShell, iDRAC, VDI, SSH.
+      Global hotkeys. AES-256 encryption. No cloud. No BS.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://github.com/AnarchySC/oblysk/releases/latest" class="btn-primary">↓ Download Free</a>
+      <a href="https://github.com/AnarchySC/oblysk" class="btn-ghost">View Source →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="app-window" id="appWindow">
+      <div class="titlebar">
+        <div class="titlebar-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="titlebar-title">oblysk</div>
+        <div class="titlebar-lock">
+          <span>&#128274;</span>
+          <span>UNLOCKED</span>
+        </div>
+      </div>
+
+      <div class="app-header">
+        <div class="app-logo">OBLYSK</div>
+        <div class="app-status">
+          <div class="status-dot"></div>
+          <span>6 / 9 cells active</span>
+        </div>
+      </div>
+
+      <div class="grid-container" id="clipGrid">
+        <!-- Row 1 -->
+        <div class="cell filled" onclick="activateCell(this, 1)">
+          <div class="cell-num">01 <span class="hotkey">⌃⌥1</span></div>
+          <div class="cell-content">sudo systemctl restart nginx</div>
+          <div class="cell-tag">#ops</div>
+        </div>
+        <div class="cell filled" onclick="activateCell(this, 2)">
+          <div class="cell-num">02 <span class="hotkey">⌃⌥2</span></div>
+          <div class="cell-content">ssh admin@10.0.0.1 -i ~/.ssh/prod</div>
+          <div class="cell-tag">#ssh</div>
+        </div>
+        <div class="cell filled" onclick="activateCell(this, 3)">
+          <div class="cell-num">03 <span class="hotkey">⌃⌥3</span></div>
+          <div class="cell-content">kubectl get pods -n production</div>
+          <div class="cell-tag">#k8s</div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="cell filled" onclick="activateCell(this, 4)">
+          <div class="cell-num">04 <span class="hotkey">⌃⌥4</span></div>
+          <div class="cell-content">docker ps --format "table {{`{{`}}.Names{{`}}`}}"</div>
+          <div class="cell-tag">#docker</div>
+        </div>
+        <div class="cell filled" onclick="activateCell(this, 5)">
+          <div class="cell-num">05 <span class="hotkey">⌃⌥5</span></div>
+          <div class="cell-content">grep -r "ERROR" /var/log/ --include="*.log"</div>
+          <div class="cell-tag">#logs</div>
+        </div>
+        <div class="cell filled" onclick="activateCell(this, 6)">
+          <div class="cell-num">06 <span class="hotkey">⌃⌥6</span></div>
+          <div class="cell-content">tar -czf backup-$(date +%Y%m%d).tar.gz /opt/data</div>
+          <div class="cell-tag">#backup</div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="cell" onclick="activateCell(this, 7)">
+          <div class="cell-num">07 <span class="hotkey">⌃⌥7</span></div>
+          <div class="cell-empty-hint">double-click<br>to edit</div>
+        </div>
+        <div class="cell" onclick="activateCell(this, 8)">
+          <div class="cell-num">08 <span class="hotkey">⌃⌥8</span></div>
+          <div class="cell-empty-hint">double-click<br>to edit</div>
+        </div>
+        <div class="cell" onclick="activateCell(this, 9)">
+          <div class="cell-num">09 <span class="hotkey">⌃⌥9</span></div>
+          <div class="cell-empty-hint">double-click<br>to edit</div>
+        </div>
+      </div>
+
+      <div class="platform-targets">
+        <div class="platform-label">current target</div>
+        <div class="platform-row">
+          <div class="platform-chip active">Linux X11</div>
+          <div class="platform-chip">Wayland</div>
+          <div class="platform-chip">Windows</div>
+          <div class="platform-chip">macOS</div>
+        </div>
+      </div>
+
+      <div class="app-footer">
+        <div class="footer-item">
+          <span class="footer-key">⌃⌥O</span>
+          <span>toggle</span>
+        </div>
+        <div class="footer-item">
+          <span class="footer-key">⌃⌥V</span>
+          <span>on-deck</span>
+        </div>
+        <div class="footer-item">
+          <span class="footer-key">⌃⌥R</span>
+          <span>rev-copy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="ob-section">
+  <div class="section-label">// core.features</div>
+  <h2 class="section-title">Built for environments that break everything else.</h2>
+  <div class="features-grid">
+    <div class="ob-feature-card">
+      <span class="feature-icon">&#8862;</span>
+      <div class="feature-name">9-Cell Grid</div>
+      <p class="feature-desc">Organized clipboard management with visual indicators. Store, label, and recall anything — instantly.</p>
+    </div>
+    <div class="ob-feature-card">
+      <span class="feature-icon">&#8963;</span>
+      <div class="feature-name">22+ Global Hotkeys</div>
+      <p class="feature-desc">Ctrl+Alt+1 through 9 paste directly. Works system-wide, even inside virtual consoles and locked-down remote sessions.</p>
+    </div>
+    <div class="ob-feature-card">
+      <span class="feature-icon">&#128272;</span>
+      <div class="feature-name">AES-256 Encryption</div>
+      <p class="feature-desc">Master password protection with PBKDF2 hashing. Auto-lock on inactivity. Your data never leaves your machine.</p>
+    </div>
+    <div class="ob-feature-card">
+      <span class="feature-icon">&#128190;</span>
+      <div class="feature-name">Persistent Storage</div>
+      <p class="feature-desc">Your cells survive restarts. Open it up, your commands are exactly where you left them.</p>
+    </div>
+    <div class="ob-feature-card">
+      <span class="feature-icon">&#8596;</span>
+      <div class="feature-name">Reverse Copy</div>
+      <p class="feature-desc">Ctrl+Alt+R captures text from environments where standard copy operations fail completely.</p>
+    </div>
+    <div class="ob-feature-card">
+      <span class="feature-icon">&#9673;</span>
+      <div class="feature-name">System Tray</div>
+      <p class="feature-desc">Quiet background operation. Stays out of your way until you need it, then jumps to the front fast.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOTKEYS -->
+<section class="hotkeys-section">
+  <div>
+    <div class="section-label">// hotkeys.map</div>
+    <h2 class="section-title">Every key does something.</h2>
+    <p class="hotkeys-desc">
+      22 global hotkeys registered at startup. No configuration needed.
+      They work before any window is open.
+    </p>
+  </div>
+  <div class="hotkey-list">
+    <div class="hotkey-row">
+      <div class="keys"><span class="key">Ctrl</span><span class="key-sep">+</span><span class="key">Alt</span><span class="key-sep">+</span><span class="key">1-9</span></div>
+      <span class="hotkey-action">Paste from cells 1-9</span>
+    </div>
+    <div class="hotkey-row">
+      <div class="keys"><span class="key">Ctrl</span><span class="key-sep">+</span><span class="key">Alt</span><span class="key-sep">+</span><span class="key">O</span></div>
+      <span class="hotkey-action">Toggle main window</span>
+    </div>
+    <div class="hotkey-row">
+      <div class="keys"><span class="key">Ctrl</span><span class="key-sep">+</span><span class="key">Alt</span><span class="key-sep">+</span><span class="key">C</span></div>
+      <span class="hotkey-action">Copy to notepad</span>
+    </div>
+    <div class="hotkey-row">
+      <div class="keys"><span class="key">Ctrl</span><span class="key-sep">+</span><span class="key">Alt</span><span class="key-sep">+</span><span class="key">V</span></div>
+      <span class="hotkey-action">Paste on-deck content</span>
+    </div>
+    <div class="hotkey-row">
+      <div class="keys"><span class="key">Ctrl</span><span class="key-sep">+</span><span class="key">Alt</span><span class="key-sep">+</span><span class="key">R</span></div>
+      <span class="hotkey-action">Reverse copy</span>
+    </div>
+    <div class="hotkey-row">
+      <div class="keys"><span class="key">Ctrl</span><span class="key-sep">+</span><span class="key">Shift</span><span class="key-sep">+</span><span class="key">D</span></div>
+      <span class="hotkey-action">Debug log export</span>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET ENVIRONMENTS -->
+<section class="targets-section">
+  <div class="section-label">// target.environments</div>
+  <h2 class="section-title">Where standard clipboard managers give up.</h2>
+  <div class="targets-grid">
+    <div class="target-card">
+      <div class="target-env">Virtualization</div>
+      <div class="target-title">VMware vSphere / ESXi</div>
+      <p class="target-desc">Web consoles eat normal clipboard. Oblysk hotkeys bypass it entirely via keystroke simulation.</p>
+    </div>
+    <div class="target-card">
+      <div class="target-env">Cloud</div>
+      <div class="target-title">AWS CloudShell & iDRAC</div>
+      <p class="target-desc">Browser-based terminals where Ctrl+V doesn't work. Oblysk types the text directly — no clipboard needed.</p>
+    </div>
+    <div class="target-card">
+      <div class="target-env">Enterprise</div>
+      <div class="target-title">VDI & Remote Desktop</div>
+      <p class="target-desc">Corporate environments that lock clipboard redirection. Your 9 cells travel with you on the local machine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security-section">
+  <div>
+    <div class="section-label">// security.model</div>
+    <h2 class="section-title">Military-grade encryption. Zero cloud. Zero trust.</h2>
+    <p class="security-desc">
+      All cell data is encrypted at rest with AES-256-GCM.
+      Your master password is never stored — keys are derived via Web Crypto API.
+      Nothing is ever transmitted externally. The code is open source. Verify it yourself.
+    </p>
+  </div>
+
+  <div class="security-visual">
+    <div class="sec-line">
+      <span class="sec-label">encryption</span>
+      <span class="sec-value">AES-256-GCM &#10003;</span>
+    </div>
+    <div class="sec-line">
+      <span class="sec-label">key derivation</span>
+      <span class="sec-value">PBKDF2 × 100,000 &#10003;</span>
+    </div>
+    <div class="sec-line">
+      <span class="sec-label">password stored</span>
+      <span class="sec-value sec-warn">NEVER &#10003;</span>
+    </div>
+    <div class="sec-line">
+      <span class="sec-label">cloud sync</span>
+      <span class="sec-value sec-warn">DISABLED &#10003;</span>
+    </div>
+    <div class="sec-line">
+      <span class="sec-label">telemetry</span>
+      <span class="sec-value sec-warn">NONE &#10003;</span>
+    </div>
+    <div class="sec-line">
+      <span class="sec-label">open source</span>
+      <span class="sec-value">MIT &#10003;</span>
+    </div>
+    <div class="sec-bar-label">encryption strength</div>
+    <div class="sec-bar"><div class="sec-fill" style="width:100%"></div></div>
+    <div class="sec-max">MAXIMUM</div>
+  </div>
+</section>
+
+<!-- PRE-FOOTER CTA -->
+<section class="ob-final-cta">
+  <div class="section-label">// get.started</div>
+  <h2 class="section-title">Ready to upgrade your workflow?</h2>
+  <div class="hero-ctas" style="margin-top: 32px;">
+    <a href="https://github.com/AnarchySC/oblysk/releases/latest" class="btn-primary">↓ Download Free</a>
+    <a href="https://github.com/AnarchySC/oblysk" class="btn-ghost">View Source →</a>
+    <a href="https://ko-fi.com/cassettefuture" class="btn-ghost">Support Development →</a>
+  </div>
+</section>
+
+</div><!-- /.oblysk-page -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&display=swap');
+
+/* ─── SCOPED VARIABLES ────────────────────────────── */
+.oblysk-page {
+  --ob-bg: #0a0c0f;
+  --ob-surface: #111418;
+  --ob-border: #1e2530;
+  --ob-border-bright: #2a3545;
+  --ob-text: #c8d4e0;
+  --ob-dim: #5a6a7a;
+  --ob-accent: #e85d04;
+  --ob-accent2: #00b4d8;
+  --ob-accent3: #7bf1a8;
+  --ob-amber: #ffb703;
+  --ob-cell-empty: #0d1117;
+  --ob-cell-filled: #0f1f2e;
+  --ob-glow-orange: rgba(232, 93, 4, 0.15);
+  --ob-glow-cyan: rgba(0, 180, 216, 0.1);
+
+  position: relative;
+  font-family: 'JetBrains Mono', var(--font-mono), monospace;
+  color: var(--ob-text);
+  line-height: 1.6;
+}
+
+/* Scanline overlay */
+.oblysk-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ─── HERO ─────────────────────────────────────────── */
+.oblysk-page .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 85vh;
+  position: relative;
+  padding: 0;
+  text-align: left;
+}
+
+.oblysk-page .hero::before { display: none; }
+
+.hero-left {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--ob-border);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, var(--ob-glow-orange), transparent 60%);
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ob-accent);
+  border: 1px solid var(--ob-accent);
+  padding: 4px 12px;
+  margin-bottom: 32px;
+  width: fit-content;
+  animation: obFadeSlideIn 0.6s ease both;
+}
+
+.badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--ob-accent);
+  border-radius: 50%;
+  animation: obPulse 2s infinite;
+}
+
+@keyframes obPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.logo-ascii {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ob-accent);
+  margin-bottom: 24px;
+  opacity: 0.6;
+  animation: obFadeSlideIn 0.6s 0.1s ease both;
+  white-space: pre;
+}
+
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  animation: obFadeSlideIn 0.6s 0.2s ease both;
+  text-shadow: none;
+  text-transform: none;
+  color: var(--ob-text);
+}
+
+.hero-title .accent { color: var(--ob-accent); }
+.hero-title .dim-line {
+  color: var(--ob-dim);
+  font-size: 0.6em;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 0.05em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hero-desc {
+  font-size: 14px;
+  color: var(--ob-dim);
+  max-width: 420px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  animation: obFadeSlideIn 0.6s 0.3s ease both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  animation: obFadeSlideIn 0.6s 0.4s ease both;
+}
+
+.btn-primary {
+  background: var(--ob-accent);
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: #ff7519;
+  box-shadow: 0 0 20px var(--ob-glow-orange);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ob-text);
+  border: 1px solid var(--ob-border-bright);
+  padding: 12px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-ghost:hover {
+  border-color: var(--ob-accent2);
+  color: var(--ob-accent2);
+  box-shadow: 0 0 15px var(--ob-glow-cyan);
+}
+
+/* ─── APP MOCKUP ──────────────────────────────────── */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, var(--ob-glow-cyan), transparent 60%);
+  pointer-events: none;
+}
+
+.app-window {
+  width: 100%;
+  max-width: 440px;
+  background: var(--ob-surface);
+  border: 1px solid var(--ob-border-bright);
+  box-shadow:
+    0 0 0 1px rgba(0,180,216,0.1),
+    0 40px 80px rgba(0,0,0,0.6),
+    0 0 60px rgba(0,180,216,0.05);
+  animation: obFadeSlideIn 0.8s 0.5s ease both;
+  position: relative;
+}
+
+.app-window::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 20px; right: 20px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ob-accent2), transparent);
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #0d1117;
+  border-bottom: 1px solid var(--ob-border);
+  user-select: none;
+}
+
+.titlebar-dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #ff5f57; }
+.dot-y { background: #ffbd2e; }
+.dot-g { background: #28c840; }
+
+.titlebar-title {
+  font-size: 11px;
+  color: var(--ob-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.titlebar-lock {
+  font-size: 11px;
+  color: var(--ob-accent3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.app-header {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--ob-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ob-accent);
+  letter-spacing: -0.02em;
+}
+
+.app-status {
+  font-size: 10px;
+  color: var(--ob-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 5px; height: 5px;
+  background: var(--ob-accent3);
+  border-radius: 50%;
+  animation: obPulse 2s infinite;
+}
+
+/* ─── GRID ────────────────────────────────────────── */
+.grid-container {
+  padding: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.oblysk-page .cell {
+  background: var(--ob-cell-empty);
+  border: 1px solid var(--ob-border);
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.oblysk-page .cell:hover {
+  border-color: var(--ob-border-bright);
+  background: #141920;
+}
+
+.oblysk-page .cell.filled {
+  background: var(--ob-cell-filled);
+  border-color: rgba(0,180,216,0.2);
+}
+
+.oblysk-page .cell.filled:hover {
+  border-color: rgba(0,180,216,0.5);
+  box-shadow: 0 0 10px rgba(0,180,216,0.08);
+}
+
+.oblysk-page .cell.active {
+  border-color: var(--ob-accent);
+  background: rgba(232,93,4,0.08);
+  box-shadow: 0 0 15px var(--ob-glow-orange);
+  animation: cellPulse 0.4s ease;
+}
+
+@keyframes cellPulse {
+  0% { transform: scale(0.97); }
+  60% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+.cell-num {
+  font-size: 9px;
+  color: var(--ob-dim);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cell-num .hotkey {
+  font-size: 8px;
+  background: rgba(255,255,255,0.05);
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: #3a4a5a;
+}
+
+.cell.filled .hotkey {
+  background: rgba(0,180,216,0.1);
+  color: var(--ob-accent2);
+}
+
+.cell-content {
+  font-size: 10px;
+  color: #8a9ab0;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cell.filled .cell-content { color: var(--ob-text); }
+
+.cell-tag {
+  font-size: 9px;
+  color: var(--ob-accent);
+  margin-top: 2px;
+  letter-spacing: 0.05em;
+}
+
+.cell-empty-hint {
+  font-size: 9px;
+  color: #2a3545;
+  margin: auto;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* ─── BOTTOM BAR ──────────────────────────────────── */
+.app-footer {
+  border-top: 1px solid var(--ob-border);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--ob-dim);
+  background: #0d1117;
+}
+
+.footer-item { display: flex; align-items: center; gap: 6px; }
+
+.footer-key {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--ob-border-bright);
+  padding: 1px 5px;
+  font-size: 9px;
+  border-radius: 2px;
+}
+
+/* ─── PLATFORMS ───────────────────────────────────── */
+.platform-targets {
+  border-top: 1px solid var(--ob-border);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.platform-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #2a3545;
+  margin-bottom: 4px;
+}
+
+.oblysk-page .platform-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+.platform-chip {
+  font-size: 9px;
+  padding: 3px 8px;
+  border: 1px solid var(--ob-border);
+  color: var(--ob-dim);
+  letter-spacing: 0.05em;
+  background: rgba(255,255,255,0.02);
+}
+
+.platform-chip.active {
+  border-color: rgba(123,241,168,0.3);
+  color: var(--ob-accent3);
+  background: rgba(123,241,168,0.04);
+}
+
+/* ─── FEATURES SECTION ────────────────────────────── */
+.ob-section {
+  border-top: 1px solid var(--ob-border);
+  padding: 100px 60px;
+  position: relative;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ob-accent2);
+  margin-bottom: 16px;
+}
+
+.oblysk-page .section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 60px;
+  max-width: 600px;
+  line-height: 1.1;
+  color: var(--ob-text);
+  text-transform: none;
+  text-shadow: none;
+  text-align: left;
+  border: none;
+  padding: 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ob-border);
+}
+
+.ob-feature-card {
+  background: var(--ob-bg);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  border: none;
+}
+
+.ob-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.ob-feature-card:hover {
+  background: var(--ob-surface);
+}
+
+.ob-feature-card:hover::before {
+  background: var(--ob-accent);
+}
+
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.feature-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--ob-text);
+}
+
+.feature-desc {
+  font-size: 12px;
+  color: var(--ob-dim);
+  line-height: 1.8;
+}
+
+/* ─── HOTKEYS SECTION ─────────────────────────────── */
+.hotkeys-section {
+  border-top: 1px solid var(--ob-border);
+  padding: 100px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hotkeys-desc {
+  font-size: 13px;
+  color: var(--ob-dim);
+  max-width: 400px;
+  line-height: 1.8;
+}
+
+.hotkey-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hotkey-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.hotkey-row:hover {
+  border-color: var(--ob-border);
+  background: var(--ob-surface);
+}
+
+.keys { display: flex; gap: 4px; min-width: 140px; }
+
+.key {
+  background: #0d1117;
+  border: 1px solid var(--ob-border-bright);
+  border-bottom-width: 2px;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--ob-text);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.key-sep { color: var(--ob-dim); font-size: 10px; }
+
+.hotkey-action {
+  font-size: 11px;
+  color: var(--ob-dim);
+}
+
+/* ─── TARGET ENVIRONMENTS ─────────────────────────── */
+.targets-section {
+  border-top: 1px solid var(--ob-border);
+  padding: 100px 60px;
+  background: var(--ob-surface);
+  position: relative;
+}
+
+.targets-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(232,93,4,0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.targets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.target-card {
+  padding: 28px;
+  border: 1px solid var(--ob-border);
+  background: var(--ob-bg);
+  transition: all 0.2s;
+}
+
+.target-card:hover {
+  border-color: var(--ob-accent);
+  box-shadow: 0 0 20px var(--ob-glow-orange);
+  transform: translateY(-2px);
+}
+
+.target-env {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ob-accent);
+  margin-bottom: 8px;
+}
+
+.target-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ob-text);
+}
+
+.target-desc {
+  font-size: 11px;
+  color: var(--ob-dim);
+  line-height: 1.7;
+}
+
+/* ─── SECURITY SECTION ────────────────────────────── */
+.security-section {
+  border-top: 1px solid var(--ob-border);
+  padding: 100px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.security-desc {
+  font-size: 13px;
+  color: var(--ob-dim);
+  line-height: 1.8;
+  max-width: 400px;
+}
+
+.security-visual {
+  background: var(--ob-surface);
+  border: 1px solid var(--ob-border-bright);
+  padding: 32px;
+  position: relative;
+}
+
+.security-visual::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 24px; right: 24px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ob-accent3), transparent);
+}
+
+.sec-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 11px;
+}
+
+.sec-label { color: var(--ob-dim); }
+.sec-value { color: var(--ob-accent3); }
+.sec-value.sec-warn { color: var(--ob-accent); }
+
+.sec-bar-label {
+  margin-top: 16px;
+  font-size: 10px;
+  color: var(--ob-dim);
+}
+
+.sec-bar {
+  margin: 8px 0;
+  height: 4px;
+  background: var(--ob-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.sec-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ob-accent3), var(--ob-accent2));
+  animation: secFill 2s 1s ease-out both;
+}
+
+@keyframes secFill { from { width: 0; } }
+
+.sec-max {
+  font-size: 9px;
+  color: var(--ob-accent3);
+  letter-spacing: 0.1em;
+}
+
+/* ─── FINAL CTA ───────────────────────────────────── */
+.ob-final-cta {
+  border-top: 1px solid var(--ob-border);
+  padding: 100px 60px;
+  text-align: center;
+}
+
+.ob-final-cta .section-title {
+  max-width: none;
+  text-align: center;
+}
+
+.ob-final-cta .hero-ctas {
+  justify-content: center;
+}
+
+/* ─── ANIMATIONS ──────────────────────────────────── */
+@keyframes obFadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .oblysk-page .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { border-right: none; border-bottom: 1px solid var(--ob-border); }
+  .features-grid { grid-template-columns: 1fr; }
+  .hotkeys-section { grid-template-columns: 1fr; }
+  .targets-grid { grid-template-columns: 1fr; }
+  .security-section { grid-template-columns: 1fr; }
+  .ob-section, .hotkeys-section, .targets-section, .security-section, .ob-final-cta {
+    padding: 60px 24px;
+  }
+  .hero-left, .hero-right { padding: 40px 24px; }
+}
+</style>
+
+<script>
+(function() {
+  var lastActive = null;
+
+  window.activateCell = function(el, num) {
+    if (lastActive) lastActive.classList.remove('active');
+    el.classList.add('active');
+    lastActive = el;
+    setTimeout(function() { el.classList.remove('active'); }, 600);
+
+    var status = document.querySelector('.app-status span');
+    var prev = status.textContent;
+    status.textContent = '\u25b6 pasting cell ' + num + '...';
+    status.style.color = 'var(--ob-accent)';
+    setTimeout(function() {
+      status.textContent = prev;
+      status.style.color = '';
+    }, 1200);
+  };
+
+  // Typing cursor animation on first filled cell
+  var firstContent = document.querySelector('.cell.filled .cell-content');
+  if (firstContent) {
+    var originalText = firstContent.textContent;
+    var i = 0;
+    firstContent.textContent = '';
+    var typeChar = function() {
+      if (i <= originalText.length) {
+        firstContent.textContent = originalText.slice(0, i) + (i < originalText.length ? '\u258c' : '');
+        i++;
+        setTimeout(typeChar, i === originalText.length + 1 ? 0 : 40);
+      }
+    };
+    setTimeout(typeChar, 1200);
+  }
+})();
+</script>
+{{ end }}

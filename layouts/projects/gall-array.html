@@ -1,0 +1,992 @@
+{{ define "main" }}
+<div class="gallarray-page">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="badge">v1.0 &#8212; Snap Store</div>
+    <div class="logo-ascii">GALL-ARRAY</div>
+    <h1 class="hero-title">
+      <span class="accent">Browse.</span> View.<br>
+      Navigate.<br>
+      <span class="dim-line">// minimal image gallery for Linux</span>
+    </h1>
+    <p class="hero-desc">
+      Simple, dark, distraction-free image gallery. Three view modes,
+      keyboard navigation, wide format support. Install from Snap and
+      start browsing in seconds.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://snapcraft.io/gall-array" class="btn-primary">&#8595; Install from Snap</a>
+      <a href="https://github.com/AnarchySC/galleray" class="btn-ghost">View Source &#8594;</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="app-window">
+      <div class="titlebar">
+        <div class="titlebar-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="titlebar-title">gall-array</div>
+        <div class="titlebar-nav">
+          <span class="nav-tab active" data-mode="grid">Grid</span>
+          <span class="nav-tab" data-mode="gallery">Gallery</span>
+          <span class="nav-tab" data-mode="list">List</span>
+        </div>
+      </div>
+      <div class="gallery-body" id="galleryBody">
+        <!-- Grid view (default) -->
+        <div class="mock-view mock-grid active" id="viewGrid">
+          <div class="thumb-grid">
+            <div class="thumb" style="--hue:200;--sat:40%"></div>
+            <div class="thumb" style="--hue:25;--sat:50%"></div>
+            <div class="thumb" style="--hue:140;--sat:35%"></div>
+            <div class="thumb hover" style="--hue:280;--sat:45%"></div>
+            <div class="thumb" style="--hue:350;--sat:40%"></div>
+            <div class="thumb" style="--hue:55;--sat:50%"></div>
+            <div class="thumb" style="--hue:180;--sat:30%"></div>
+            <div class="thumb" style="--hue:310;--sat:40%"></div>
+            <div class="thumb" style="--hue:90;--sat:35%"></div>
+          </div>
+          <div class="mock-status">9 images &mdash; /home/user/photos</div>
+        </div>
+        <!-- Gallery view -->
+        <div class="mock-view mock-gallery" id="viewGallery">
+          <div class="gallery-nav-btn">&#9664;</div>
+          <div class="gallery-main-img">
+            <div class="gallery-img-placeholder"></div>
+            <div class="gallery-img-label">sunset_coast.jpg</div>
+          </div>
+          <div class="gallery-nav-btn">&#9654;</div>
+          <div class="mock-status gallery-counter">3 / 9</div>
+        </div>
+        <!-- List view -->
+        <div class="mock-view mock-list" id="viewList">
+          <div class="list-row sel"><span class="list-icon">&#128444;</span> sunset_coast.jpg <span class="list-size">4.2 MB</span></div>
+          <div class="list-row"><span class="list-icon">&#128444;</span> mountain_dawn.png <span class="list-size">3.8 MB</span></div>
+          <div class="list-row"><span class="list-icon">&#128444;</span> cityscape.webp <span class="list-size">1.1 MB</span></div>
+          <div class="list-row"><span class="list-icon">&#128444;</span> forest_trail.jpg <span class="list-size">5.6 MB</span></div>
+          <div class="list-row"><span class="list-icon">&#128444;</span> aurora.tiff <span class="list-size">8.9 MB</span></div>
+          <div class="list-row"><span class="list-icon">&#128444;</span> beach_sunset.bmp <span class="list-size">12.3 MB</span></div>
+          <div class="mock-status">6 of 9 files visible</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="ga-section">
+  <div class="section-label">// core.features</div>
+  <h2 class="section-title">One gallery. Three ways to browse.</h2>
+  <div class="features-grid">
+    <div class="ga-feature-card">
+      <span class="feature-icon">&#128444;</span>
+      <div class="feature-name">Gallery View</div>
+      <p class="feature-desc">Full-size image viewing with Previous/Next navigation. Arrow keys or A/D to browse. Simple and focused.</p>
+    </div>
+    <div class="ga-feature-card">
+      <span class="feature-icon">&#128196;</span>
+      <div class="feature-name">List View</div>
+      <p class="feature-desc">File list with sizes. Double-click to view any image. Fast scanning of large directories.</p>
+    </div>
+    <div class="ga-feature-card">
+      <span class="feature-icon">&#9638;</span>
+      <div class="feature-name">Grid View</div>
+      <p class="feature-desc">Thumbnail grid with hover magnification preview. Instant visual overview of every image in a folder.</p>
+    </div>
+    <div class="ga-feature-card">
+      <span class="feature-icon">&#9000;</span>
+      <div class="feature-name">Keyboard Navigation</div>
+      <p class="feature-desc">Arrow keys or A/D to move between images. Esc to close. No mouse required for browsing.</p>
+    </div>
+    <div class="ga-feature-card">
+      <span class="feature-icon">&#128247;</span>
+      <div class="feature-name">Wide Format Support</div>
+      <p class="feature-desc">JPG, PNG, GIF, BMP, WebP, and TIFF. Covers every common image format out of the box.</p>
+    </div>
+    <div class="ga-feature-card">
+      <span class="feature-icon">&#127761;</span>
+      <div class="feature-name">Dark Interface</div>
+      <p class="feature-desc">Modern dark grey design. Your images are the focus, not the chrome around them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section class="install-section">
+  <div>
+    <div class="section-label">// install.guide</div>
+    <h2 class="section-title">Two commands. Done.</h2>
+    <p class="install-desc">
+      Install from the Snap Store for automatic updates, sandboxed security, and
+      zero dependency management. Or clone the repo and run it directly with Python.
+    </p>
+  </div>
+  <div class="install-methods">
+    <div class="install-card">
+      <div class="install-label">Snap Store (Recommended)</div>
+      <div class="install-cmd">
+        <code>sudo snap install gall-array</code>
+      </div>
+    </div>
+    <div class="install-card">
+      <div class="install-label">From Source</div>
+      <div class="install-cmd">
+        <code>pip install PyQt5</code>
+        <code>git clone https://github.com/anarchysc/galleray.git</code>
+        <code>python3 galleray/galleray.py</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTROLS -->
+<section class="controls-section">
+  <div class="section-label">// keyboard.controls</div>
+  <h2 class="section-title">Navigate without lifting your hands.</h2>
+  <div class="controls-grid">
+    <div class="control-card">
+      <div class="key-combo"><kbd>&#8592;</kbd> or <kbd>A</kbd></div>
+      <div class="control-action">Previous image</div>
+    </div>
+    <div class="control-card">
+      <div class="key-combo"><kbd>&#8594;</kbd> or <kbd>D</kbd></div>
+      <div class="control-action">Next image</div>
+    </div>
+    <div class="control-card">
+      <div class="key-combo"><kbd>Esc</kbd></div>
+      <div class="control-action">Close</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs-section">
+  <div class="section-label">// tech.specs</div>
+  <h2 class="section-title">Lightweight. Native. No bloat.</h2>
+  <div class="specs-grid">
+    <div class="spec-card">
+      <div class="spec-env">Language</div>
+      <div class="spec-title">Python 3</div>
+      <p class="spec-desc">Single-file application. Clean, readable codebase. Easy to modify and extend.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-env">Framework</div>
+      <div class="spec-title">PyQt5</div>
+      <p class="spec-desc">Native Qt widgets. Hardware-accelerated rendering. Consistent look across Linux desktops.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-env">Distribution</div>
+      <div class="spec-title">Snap Store</div>
+      <p class="spec-desc">Sandboxed, auto-updating, one-command install. Also available as a standalone Python script.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRE-FOOTER CTA -->
+<section class="ga-final-cta">
+  <div class="section-label">// get.started</div>
+  <h2 class="section-title">Ready to ditch the bloated image viewers?</h2>
+  <div class="hero-ctas" style="margin-top: 32px;">
+    <a href="https://snapcraft.io/gall-array" class="btn-primary">&#8595; Install from Snap</a>
+    <a href="https://github.com/AnarchySC/galleray" class="btn-ghost">View Source &#8594;</a>
+    <a href="https://ko-fi.com/cassettefuture" class="btn-ghost">Support Development &#8594;</a>
+  </div>
+</section>
+
+</div><!-- /.gallarray-page -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&display=swap');
+
+/* ─── SCOPED VARIABLES ────────────────────────────── */
+.gallarray-page {
+  --ga-bg: #0a0c0f;
+  --ga-surface: #111418;
+  --ga-border: #1e2530;
+  --ga-border-bright: #2a3545;
+  --ga-text: #c8d4e0;
+  --ga-dim: #5a6a7a;
+  --ga-accent: #E85D04;
+  --ga-accent2: #00d4ff;
+  --ga-accent3: #7bf1a8;
+  --ga-amber: #ffb703;
+  --ga-glow-orange: rgba(232, 93, 4, 0.15);
+  --ga-glow-cyan: rgba(0, 212, 255, 0.1);
+
+  position: relative;
+  font-family: 'JetBrains Mono', var(--font-mono), monospace;
+  color: var(--ga-text);
+  line-height: 1.6;
+}
+
+/* Scanline overlay */
+.gallarray-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ─── HERO ─────────────────────────────────────────── */
+.gallarray-page .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 85vh;
+  position: relative;
+  padding: 0;
+  text-align: left;
+}
+
+.gallarray-page .hero::before { display: none; }
+
+.gallarray-page .hero-left {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--ga-border);
+  position: relative;
+  z-index: 2;
+}
+
+.gallarray-page .hero-left::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, var(--ga-glow-orange), transparent 60%);
+  pointer-events: none;
+}
+
+.gallarray-page .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ga-accent);
+  border: 1px solid var(--ga-accent);
+  padding: 4px 12px;
+  margin-bottom: 32px;
+  width: fit-content;
+  animation: gaFadeSlideIn 0.6s ease both;
+}
+
+.gallarray-page .badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--ga-accent);
+  border-radius: 50%;
+  animation: gaPulse 2s infinite;
+}
+
+@keyframes gaPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.gallarray-page .logo-ascii {
+  font-size: 14px;
+  line-height: 1;
+  color: var(--ga-accent);
+  margin-bottom: 24px;
+  opacity: 0.6;
+  animation: gaFadeSlideIn 0.6s 0.1s ease both;
+  letter-spacing: 0.4em;
+  font-weight: 700;
+}
+
+.gallarray-page .hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  animation: gaFadeSlideIn 0.6s 0.2s ease both;
+  text-shadow: none;
+  text-transform: none;
+  color: var(--ga-text);
+}
+
+.gallarray-page .hero-title .accent { color: var(--ga-accent); }
+.gallarray-page .hero-title .dim-line {
+  color: var(--ga-dim);
+  font-size: 0.6em;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 0.05em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.gallarray-page .hero-desc {
+  font-size: 14px;
+  color: var(--ga-dim);
+  max-width: 420px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  animation: gaFadeSlideIn 0.6s 0.3s ease both;
+}
+
+.gallarray-page .hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  animation: gaFadeSlideIn 0.6s 0.4s ease both;
+}
+
+.gallarray-page .btn-primary {
+  background: var(--ga-accent);
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.gallarray-page .btn-primary:hover {
+  background: #ff7519;
+  box-shadow: 0 0 20px var(--ga-glow-orange);
+  transform: translateY(-1px);
+}
+
+.gallarray-page .btn-ghost {
+  background: transparent;
+  color: var(--ga-text);
+  border: 1px solid var(--ga-border-bright);
+  padding: 12px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.gallarray-page .btn-ghost:hover {
+  border-color: var(--ga-accent2);
+  color: var(--ga-accent2);
+  box-shadow: 0 0 15px var(--ga-glow-cyan);
+}
+
+/* ─── APP MOCKUP ─────────────────────────────────── */
+.gallarray-page .hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.gallarray-page .hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, var(--ga-glow-cyan), transparent 60%);
+  pointer-events: none;
+}
+
+.gallarray-page .app-window {
+  width: 100%;
+  max-width: 480px;
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border-bright);
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,0.1),
+    0 40px 80px rgba(0,0,0,0.6),
+    0 0 60px rgba(0,212,255,0.05);
+  animation: gaFadeSlideIn 0.8s 0.5s ease both;
+  position: relative;
+}
+
+.gallarray-page .app-window::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 20px; right: 20px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ga-accent2), transparent);
+}
+
+.gallarray-page .titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #0d1117;
+  border-bottom: 1px solid var(--ga-border);
+  user-select: none;
+}
+
+.gallarray-page .titlebar-dots { display: flex; gap: 6px; }
+.gallarray-page .dot { width: 10px; height: 10px; border-radius: 50%; }
+.gallarray-page .dot-r { background: #ff5f57; }
+.gallarray-page .dot-y { background: #ffbd2e; }
+.gallarray-page .dot-g { background: #28c840; }
+
+.gallarray-page .titlebar-title {
+  font-size: 11px;
+  color: var(--ga-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gallarray-page .titlebar-nav {
+  display: flex;
+  gap: 2px;
+}
+
+.gallarray-page .nav-tab {
+  font-size: 10px;
+  color: var(--ga-dim);
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.gallarray-page .nav-tab:hover {
+  color: var(--ga-text);
+}
+
+.gallarray-page .nav-tab.active {
+  color: var(--ga-accent2);
+  border-color: var(--ga-accent2);
+  background: rgba(0,212,255,0.05);
+}
+
+.gallery-body {
+  min-height: 320px;
+  background: #0d1117;
+  position: relative;
+  overflow: hidden;
+}
+
+.mock-view {
+  display: none;
+  padding: 16px;
+  position: relative;
+  min-height: 288px;
+}
+
+.mock-view.active {
+  display: block;
+  animation: gaViewFade 0.3s ease;
+}
+
+@keyframes gaViewFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Grid view */
+.thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.thumb {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: hsl(var(--hue), var(--sat), 18%);
+  border: 1px solid hsl(var(--hue), var(--sat), 25%);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(var(--hue), var(--sat), 28%) 0%, hsl(var(--hue), var(--sat), 12%) 100%);
+  border-radius: 2px;
+}
+
+.thumb.hover {
+  transform: scale(1.08);
+  border-color: var(--ga-accent2);
+  box-shadow: 0 0 12px rgba(0,212,255,0.3);
+  z-index: 2;
+}
+
+/* Gallery view */
+.mock-gallery {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  min-height: 288px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mock-gallery.active {
+  display: flex;
+}
+
+.gallery-nav-btn {
+  font-size: 18px;
+  color: var(--ga-dim);
+  cursor: default;
+  padding: 8px;
+  border: 1px solid var(--ga-border);
+  background: var(--ga-surface);
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.gallery-main-img {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.gallery-img-placeholder {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, hsl(25, 50%, 18%) 0%, hsl(25, 40%, 10%) 60%, hsl(200, 30%, 12%) 100%);
+  border: 1px solid var(--ga-border-bright);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-img-placeholder::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(0deg, hsl(25, 45%, 12%), transparent);
+}
+
+.gallery-img-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 15%; right: 20%;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: hsl(40, 80%, 65%);
+  box-shadow: 0 0 20px hsl(40, 80%, 50%);
+  opacity: 0.7;
+}
+
+.gallery-img-label {
+  font-size: 10px;
+  color: var(--ga-dim);
+  letter-spacing: 0.05em;
+}
+
+.gallery-counter {
+  width: 100%;
+  text-align: center;
+}
+
+/* List view */
+.list-row {
+  font-size: 11px;
+  color: var(--ga-dim);
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(30,37,48,0.5);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.list-row.sel {
+  background: rgba(0,212,255,0.06);
+  color: var(--ga-accent2);
+  border-left: 2px solid var(--ga-accent2);
+}
+
+.list-icon {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.list-size {
+  margin-left: auto;
+  font-size: 10px;
+  opacity: 0.4;
+}
+
+.mock-status {
+  font-size: 9px;
+  color: var(--ga-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-top: 12px;
+  opacity: 0.5;
+}
+
+/* ─── FEATURES SECTION ────────────────────────────── */
+.ga-section {
+  border-top: 1px solid var(--ga-border);
+  padding: 100px 60px;
+  position: relative;
+}
+
+.gallarray-page .section-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ga-accent2);
+  margin-bottom: 16px;
+}
+
+.gallarray-page .section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 60px;
+  max-width: 600px;
+  line-height: 1.1;
+  color: var(--ga-text);
+  text-transform: none;
+  text-shadow: none;
+  text-align: left;
+  border: none;
+  padding: 0;
+}
+
+.gallarray-page .features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ga-border);
+}
+
+.ga-feature-card {
+  background: var(--ga-bg);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  border: none;
+}
+
+.ga-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.ga-feature-card:hover {
+  background: var(--ga-surface);
+}
+
+.ga-feature-card:hover::before {
+  background: var(--ga-accent);
+}
+
+.gallarray-page .feature-icon {
+  font-size: 28px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.gallarray-page .feature-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--ga-text);
+}
+
+.gallarray-page .feature-desc {
+  font-size: 12px;
+  color: var(--ga-dim);
+  line-height: 1.8;
+}
+
+/* ─── INSTALL SECTION ────────────────────────────── */
+.install-section {
+  border-top: 1px solid var(--ga-border);
+  padding: 100px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.install-desc {
+  font-size: 13px;
+  color: var(--ga-dim);
+  max-width: 400px;
+  line-height: 1.8;
+}
+
+.install-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.install-card {
+  padding: 24px;
+  border: 1px solid var(--ga-border-bright);
+  background: var(--ga-surface);
+  transition: all 0.2s;
+}
+
+.install-card:hover {
+  border-color: var(--ga-accent);
+  box-shadow: 0 0 15px var(--ga-glow-orange);
+}
+
+.install-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ga-accent);
+  margin-bottom: 12px;
+}
+
+.install-cmd {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.install-cmd code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--ga-accent3);
+  background: rgba(0,0,0,0.3);
+  padding: 6px 10px;
+  display: block;
+  border-left: 2px solid var(--ga-border);
+}
+
+/* ─── CONTROLS SECTION ──────────────────────────── */
+.controls-section {
+  border-top: 1px solid var(--ga-border);
+  padding: 100px 60px;
+  background: var(--ga-surface);
+  position: relative;
+}
+
+.controls-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.04), transparent 60%);
+  pointer-events: none;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.control-card {
+  padding: 32px;
+  border: 1px solid var(--ga-border);
+  background: var(--ga-bg);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.control-card:hover {
+  border-color: var(--ga-accent2);
+  box-shadow: 0 0 15px var(--ga-glow-cyan);
+  transform: translateY(-2px);
+}
+
+.key-combo {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--ga-text);
+}
+
+.key-combo kbd {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--ga-accent2);
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.2);
+  padding: 4px 10px;
+  min-width: 32px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.control-action {
+  font-size: 12px;
+  color: var(--ga-dim);
+  letter-spacing: 0.05em;
+}
+
+/* ─── SPECS SECTION ──────────────────────────────── */
+.specs-section {
+  border-top: 1px solid var(--ga-border);
+  padding: 100px 60px;
+  position: relative;
+}
+
+.specs-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(232,93,4,0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.spec-card {
+  padding: 28px;
+  border: 1px solid var(--ga-border);
+  background: var(--ga-surface);
+  transition: all 0.2s;
+}
+
+.spec-card:hover {
+  border-color: var(--ga-accent);
+  box-shadow: 0 0 20px var(--ga-glow-orange);
+  transform: translateY(-2px);
+}
+
+.spec-env {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ga-accent);
+  margin-bottom: 8px;
+}
+
+.spec-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ga-text);
+}
+
+.spec-desc {
+  font-size: 11px;
+  color: var(--ga-dim);
+  line-height: 1.7;
+}
+
+/* ─── FINAL CTA ───────────────────────────────────── */
+.ga-final-cta {
+  border-top: 1px solid var(--ga-border);
+  padding: 100px 60px;
+  text-align: center;
+}
+
+.ga-final-cta .section-title {
+  max-width: none;
+  text-align: center;
+}
+
+.ga-final-cta .hero-ctas {
+  justify-content: center;
+}
+
+/* ─── ANIMATIONS ──────────────────────────────────── */
+@keyframes gaFadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .gallarray-page .hero { grid-template-columns: 1fr; min-height: auto; }
+  .gallarray-page .hero-left { border-right: none; border-bottom: 1px solid var(--ga-border); }
+  .gallarray-page .features-grid { grid-template-columns: 1fr; }
+  .install-section { grid-template-columns: 1fr; }
+  .controls-grid { grid-template-columns: 1fr; }
+  .specs-grid { grid-template-columns: 1fr; }
+  .ga-section, .install-section, .controls-section, .specs-section, .ga-final-cta {
+    padding: 60px 24px;
+  }
+  .gallarray-page .hero-left, .gallarray-page .hero-right { padding: 40px 24px; }
+}
+</style>
+
+<script>
+(function() {
+  // Interactive view mode tabs
+  var tabs = document.querySelectorAll('.gallarray-page .nav-tab');
+  var views = {
+    grid: document.getElementById('viewGrid'),
+    gallery: document.getElementById('viewGallery'),
+    list: document.getElementById('viewList')
+  };
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var mode = this.getAttribute('data-mode');
+
+      // Update tabs
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+
+      // Update views
+      Object.keys(views).forEach(function(key) {
+        if (views[key]) views[key].classList.remove('active');
+      });
+      if (views[mode]) views[mode].classList.add('active');
+    });
+  });
+
+  // Auto-cycle through views for demo
+  var modes = ['grid', 'gallery', 'list'];
+  var currentMode = 0;
+
+  setInterval(function() {
+    currentMode = (currentMode + 1) % modes.length;
+    var mode = modes[currentMode];
+
+    tabs.forEach(function(t) { t.classList.remove('active'); });
+    var activeTab = document.querySelector('.nav-tab[data-mode="' + mode + '"]');
+    if (activeTab) activeTab.classList.add('active');
+
+    Object.keys(views).forEach(function(key) {
+      if (views[key]) views[key].classList.remove('active');
+    });
+    if (views[mode]) views[mode].classList.add('active');
+  }, 4000);
+})();
+</script>
+{{ end }}

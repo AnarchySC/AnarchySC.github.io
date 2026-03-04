@@ -9,17 +9,20 @@
 @font-face {
   font-family: 'Codex';
   src: url('../fonts/Codex.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Techno Agony';
   src: url('../fonts/TechnoAgony-Jdzn.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Fawkes';
   src: url('../fonts/FawkesHalftoneItalic-7OYxK.otf') format('opentype');
   font-style: italic;
+  font-display: swap;
 }
 
 /* ─── Variables ─────────────────────────────────────────────────────────── */

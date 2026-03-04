@@ -13,7 +13,7 @@
 
   <div class="project-grid">
     {{- range .Pages.ByWeight }}
-    <div class="project-card">
+    <a class="project-card" href="{{ with .Params.demo }}{{ . }}{{ else }}{{ with .Params.github }}{{ . }}{{ else }}#{{ end }}{{ end }}" target="_blank" rel="noopener">
       <div class="project-card-header">
         <h3>{{ .Title }}</h3>
         <span class="status-badge status-{{ .Params.status | default "active" }}">{{ .Params.status | default "active" }}</span>
@@ -25,14 +25,14 @@
         {{- end }}
       </div>
       <div class="links">
-        {{- with .Params.github }}
-        <a href="{{ . }}" target="_blank" rel="noopener">Source</a>
+        {{- with $.Params.github }}
+        <span class="project-link" onclick="event.stopPropagation(); window.open('{{ . }}', '_blank');">Source</span>
         {{- end }}
-        {{- with .Params.demo }}
-        <a href="{{ . }}" target="_blank" rel="noopener">Demo</a>
+        {{- with $.Params.demo }}
+        <span class="project-link" onclick="event.stopPropagation(); window.open('{{ . }}', '_blank');">Demo</span>
         {{- end }}
       </div>
-    </div>
+    </a>
     {{- end }}
   </div>
 </div>

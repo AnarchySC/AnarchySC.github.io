@@ -248,13 +248,13 @@ github: "https://github.com/AnarchySC"
         <div>
           <div class="so-wordmark">ScrivenerOS</div>
           <h1 class="so-title">An operating system for <em>a parent and a child.</em></h1>
-          <span class="so-dim">// mentor and pupil. one shared machine. no terminal required.</span>
+          <span class="so-dim">Mentor and pupil. One shared machine. No terminal required.</span>
         </div>
       </div>
-      <p class="so-lede">ScrivenerOS is a kid-oriented Linux that promotes focus, rewards curiosity and calms the soul when the student signs in — and stays delightfully easy for the parent who runs it. Setup is a wizard. Secure Boot stays on. And all of it is free.</p>
+      <p class="so-lede">ScrivenerOS is a kid-oriented Linux. When the student signs in, it promotes focus, the desire to learn, and a calm mind. For the parent who runs it, it stays delightfully easy: setup is a wizard, Secure Boot stays on, and all of it is free.</p>
       <div class="so-ctas">
-        <a class="so-btn so-btn-primary" href="#promise">Read our promise ↓</a>
-        <a class="so-btn so-btn-ghost" href="https://github.com/AnarchySC" target="_blank" rel="noopener">Follow the build →</a>
+        <a class="so-btn so-btn-primary" href="#promise">Read our promises ↓</a>
+        <a class="so-btn so-btn-ghost" href="https://github.com/AnarchySC" target="_blank" rel="noopener">Anarchy Games on GitHub →</a>
       </div>
     </div>
     <div class="so-hero-right">
@@ -266,7 +266,7 @@ github: "https://github.com/AnarchySC"
         </div>
         <div class="so-hours">
           <div class="so-hours-head">
-            <div class="so-hours-day">Tuesday</div>
+            <div class="so-hours-day" id="so-day">Today</div>
             <div class="so-hours-date">Focus time · 3 apps open</div>
           </div>
           <div class="so-count">
@@ -284,7 +284,7 @@ github: "https://github.com/AnarchySC"
             <li><time>15:00</time><span>Piano lesson</span><span class="so-tag imp">important</span></li>
           </ul>
           <div class="so-toast" id="so-toast">
-            <div><b>Save your work.</b><span>Focus time ends in five minutes — Math will close on its own.</span></div>
+            <div><b>Save your work.</b><span>Focus time ends in five minutes. Your parent asked Hours to show this one.</span></div>
             <div class="so-pin">from Ledger</div>
           </div>
           <div class="so-ask"><span>Need a little longer?</span><button type="button">Ask for 15 more minutes</button></div>
@@ -298,21 +298,21 @@ github: "https://github.com/AnarchySC"
   <div class="so-wrap">
     <div class="so-label">the idea</div>
     <h2 class="so-h2">It's a relationship, not a machine.</h2>
-    <p class="so-intro">Most kid-safe computers are built around one user and a wall of locks. ScrivenerOS is built around two people. The student gets a desk that helps them concentrate. The parent gets a book of rules that's a pleasure to keep. Same laptop, one cohesive experience, and every page of it looks like it belongs to the same book.</p>
+    <p class="so-intro">Most kid-safe computers are built around one user and a wall of locks. ScrivenerOS is built around two people. The student gets a desk that helps them concentrate; the parent gets a book of rules that is a pleasure to keep. One laptop, one cohesive experience — and every page of it looks like it came from the same book.</p>
     <div class="so-two">
       <div>
         <div class="so-who">When the student signs in</div>
-        <span class="so-cap">P</span>
-        <h3>A quiet desk that wants you to learn.</h3>
-        <p>A calm, cohesive desktop: dock on the left, a theme they helped choose, an illuminated initial where a stranger's logo would normally sit. Hours keeps today's plan in the corner so nothing sneaks up on them, and Learn your Linux waits in the dock with lessons that begin with a picture of the thing — not a wall of text.</p>
-        <p>Nothing is locked for the sake of it. The student can install Steam, a paint program, a code editor. Rules only exist where a parent wrote one.</p>
+        <span class="so-cap" aria-hidden="true">A</span>
+        <h3>A quiet desk, built for learning.</h3>
+        <p>A calm, cohesive desktop: the dock on the left, a theme picked during setup, an illuminated initial where a distro's logo would normally sit. Hours keeps today's plan in the corner so nothing sneaks up on them, and Learn your Linux waits in the dock with lessons that begin with a picture of the thing rather than a wall of text.</p>
+        <p>Nothing is locked for the sake of it. The student can install Steam, a paint program, a code editor. A rule exists only where a parent wrote one.</p>
       </div>
       <div>
         <div class="so-who">When the parent signs in</div>
-        <span class="so-cap">M</span>
+        <span class="so-cap" aria-hidden="true">E</span>
         <h3>Everything happens in a wizard or on your phone.</h3>
         <p>First boot walks you through it: your own admin account, the student's account, a theme, the apps you'd like installed (each one explains what it's good for), and whether you're adding more students. No terminal. No firmware menu. Nobody ever asks you to disable Secure Boot.</p>
-        <p>After that, the rules live in Ledger on your phone. Change a window, approve a request, send a note — the laptop catches up on its own.</p>
+        <p>After that, the rules live in Ledger on your phone. Change an app's hours, approve a request, send a note — the laptop catches up on its own.</p>
       </div>
     </div>
   </div>
@@ -322,17 +322,17 @@ github: "https://github.com/AnarchySC"
   <div class="so-wrap">
     <div class="so-label">what's in the box</div>
     <h2 class="so-h2">Everything a family laptop should already do.</h2>
-    <p class="so-intro">Here is the whole feature list, in plain language. Every one of these is either in the current test build or in the companion apps described below.</p>
+    <p class="so-intro">Here is the feature list, in plain language. Some of it is in the current test build; the rest arrives with the companion apps below. The roadmap further down says which is which.</p>
     <div class="so-grid">
-      <div class="so-feat"><span class="so-cap">S</span><h3>Secure Boot, on.</h3><p>Boots with Secure Boot enabled on an unmodified laptop. Nobody is ever told to turn it off, enroll a key, or click through a blue screen full of warnings.</p></div>
-      <div class="so-feat"><span class="so-cap">W</span><h3>A wizard, not a terminal.</h3><p>First boot creates the parent's admin account and the student's account, picks a theme, picks apps — each with a plain-English bubble saying what it's good for — and asks whether you're adding more students.</p></div>
-      <div class="so-feat"><span class="so-cap">O</span><h3>Open by default.</h3><p>The OS restricts nothing on its own. Kids can install Steam, creative tools, whatever they're into. The managed experience is a layer the parent turns on — Quill ships installed but off.</p></div>
-      <div class="so-feat"><span class="so-cap">A</span><h3>Apps, when the parent says.</h3><p>Once Quill and Ledger are paired, every app gets a window: focus time, free time, or never. Outside its window an app simply won't open. Anything newly installed waits for a parent's yes.</p></div>
-      <div class="so-feat"><span class="so-cap">U</span><h3>Updates that can't wreck it.</h3><p>ScrivenerOS is an image-based OS. Updates arrive whole and tested, stage quietly in the background, apply on the next reboot, and roll back on their own if anything is wrong.</p></div>
-      <div class="so-feat"><span class="so-cap">T</span><h3>Themes, chosen together.</h3><p>Pick a look during setup and the whole desktop follows — icons, colors, the works. Dock on the left, scriptorium branding throughout, no stray upstream logos.</p></div>
-      <div class="so-feat"><span class="so-cap">L</span><h3>Learn your Linux.</h3><p>Built-in lessons on the desktop itself. Every topic opens with a picture of the thing it's teaching, then something to try with your own hands. Fifteen topics at launch.</p></div>
-      <div class="so-feat"><span class="so-cap">H</span><h3>Hours, on the desk.</h3><p>A tuck-away widget with a countdown, today's schedule and gentle warnings before transitions — so the end of free time is never a surprise, for anyone.</p></div>
-      <div class="so-feat"><span class="so-cap">D</span><h3>One disk, one OS.</h3><p>ScrivenerOS takes the whole disk — there is no dual-boot side door for a determined ten-year-old. Re-imaging is never blocked, though. It's your laptop, and it always will be.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">S</span><h3>Secure Boot stays on.</h3><p>It boots with Secure Boot enabled on an unmodified laptop. Nobody is ever told to turn it off, enroll a key, or click through a screen full of warnings.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">W</span><h3>Walk-through setup, no terminal.</h3><p>The first-boot wizard creates the parent's admin account and the student's account, lets you choose a theme and the apps you want — each with a plain-English note on what it's good for — and asks whether you're adding more students.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">O</span><h3>Open by default.</h3><p>The OS restricts nothing on its own. Kids can install Steam, creative tools, whatever they're into. The managed experience is a layer the parent switches on — Quill ships installed but off.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">A</span><h3>Apps open when the parent says.</h3><p>Once Quill and Ledger are paired, every app gets its hours: focus time, free time, or never. Outside those hours an app simply won't open, and anything newly installed waits for a parent's approval.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">U</span><h3>Updates you can always undo.</h3><p>ScrivenerOS is an image-based OS. Updates arrive whole and tested, stage quietly in the background, and apply on the next reboot. The previous version stays on the disk, so a bad update is one reboot from undone.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">T</span><h3>Themes from the first boot.</h3><p>Pick a look during setup and the desktop follows it: the dock on the left, scriptorium branding throughout, no stray upstream logos. A matching icon set is on the roadmap.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">L</span><h3>Learn your Linux.</h3><p>Built-in lessons on the desktop itself. Every topic opens with a picture of the thing it's teaching, then something to try with your own hands. Fifteen topics at launch.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">H</span><h3>Hours keeps the day in view.</h3><p>A tuck-away widget with a countdown, today's schedule and gentle warnings before transitions — so the end of free time is never a surprise, for anyone.</p></div>
+      <div class="so-feat"><span class="so-cap" aria-hidden="true">D</span><h3>Dual boot is off the table.</h3><p>ScrivenerOS takes the whole disk — there is no second system for a determined ten-year-old to boot into. Re-imaging is never blocked, though. It's your laptop, and it always will be.</p></div>
     </div>
   </div>
 </section>
@@ -344,40 +344,41 @@ github: "https://github.com/AnarchySC"
     <p class="so-intro">The OS on its own is a free, safe, kid-oriented Linux. Add the companions and it becomes a seriously managed device — managed in the open, where the student can read the same rules the parent wrote.</p>
     <div class="so-comp">
       <article class="so-quill">
-        <span class="so-cap">Q</span>
+        <span class="so-cap" aria-hidden="true">Q</span>
         <h3>Quill</h3>
         <div class="so-role">the agent on the laptop</div>
-        <p>Quill lives on the student's machine. It pulls the parent's ledger, compares it with what's actually on the laptop, and closes the gap — which apps may open right now, which windows are active, which reminders to show. It ships pre-installed and switched off; the parent turns it on during setup or any day later.</p>
+        <p>Quill lives on the student's machine. It pulls the parent's ledger, compares it with what's actually on the laptop, and closes the gap: which apps may open right now, whether it's focus time or free time, which reminders to show. It ships pre-installed and switched off; the parent turns it on during setup or any day later.</p>
         <ul class="so-lines">
           <li>Inventories every app on the machine</li>
-          <li>Enforces focus, free time and never</li>
-          <li>Blocks new installs until approved</li>
-          <li>Reports refusals and time-in-app back</li>
+          <li>Keeps each app to its hours — focus, free or never</li>
+          <li>Holds new installs until a parent approves them</li>
+          <li>Reports refusals and time in each app to Ledger</li>
         </ul>
       </article>
       <article class="so-ledger">
-        <span class="so-cap">L</span>
+        <span class="so-cap" aria-hidden="true">L</span>
         <h3>Ledger</h3>
         <div class="so-role">the parent's book of rules</div>
-        <p>A phone-first web app you install straight from the browser — no app store, no account with anyone else. See what's installed on the kid's laptop, set focus time and free time, decide when each app can launch, approve a request with one tap, and send a note that appears on their screen.</p>
+        <p>A phone-first web app you install straight from the browser — no app store required. See what's installed on the kid's laptop, set focus time and free time, decide when each app can launch, approve a request with one tap, and send a note that appears on their screen.</p>
         <ul class="so-lines">
           <li>Temporary overrides that expire on their own</li>
           <li>Pause now, with a forced save-your-game warning</li>
-          <li>Websites managed in the same focus / free / never list</li>
+          <li>Websites in the same focus / free / never list</li>
           <li>Two parents, one ledger; copy a setup to the next kid</li>
           <li>A change history the kid can read too</li>
+          <li>A weekly note on what the kid accomplished, not just the rules</li>
         </ul>
       </article>
       <article class="so-hours-card">
-        <span class="so-cap">H</span>
+        <span class="so-cap" aria-hidden="true">H</span>
         <h3>Hours</h3>
         <div class="so-role">the student's day, at a glance</div>
-        <p>A widget that tucks away. A countdown, today's schedule, and a heads-up before anything changes. The student chooses which pop-ups they want; the parent can insist on a few — save your work, save your game, the piano lesson is in ten minutes.</p>
+        <p>A widget that tucks away: a countdown, today's schedule, and a heads-up before anything changes. The student chooses which pop-ups they want; the parent can insist on a few — save your work, save your game, the piano lesson is in ten minutes.</p>
         <ul class="so-lines">
           <li>Today view the moment they sign in</li>
           <li>Countdown to the next transition</li>
-          <li>Ask for more time, answered from Ledger</li>
-          <li>A weekly note home about what got done</li>
+          <li>Ask for more time — answered from Ledger</li>
+          <li>Notes from the parent, shown the moment they arrive</li>
         </ul>
       </article>
     </div>
@@ -388,15 +389,15 @@ github: "https://github.com/AnarchySC"
       <div class="so-arrow" aria-hidden="true"></div>
       <div class="so-node"><span>what the student sees</span><b>Hours</b><p>Shows the plan, the countdown and any note the parent sent.</p></div>
     </div>
-    <p class="so-flow-note"><b>"In compliance" just means there's no difference left.</b> Ledger and Quill talk to each other directly over your home network first; a relay only steps in when you're away from home, and it only carries addresses — never what's being said.</p>
+    <p class="so-flow-note"><b>"In compliance" just means there's no difference left.</b> Ledger and Quill talk to each other directly over your home network. When you're away, a relay passes the connection through, encrypted end to end — it can't read what's being said.</p>
   </div>
 </section>
 <!-- ============ PROMISE ============ -->
 <section class="so-section so-promise" id="promise">
   <div class="so-wrap">
-    <div class="so-label">our promise</div>
-    <h2 class="so-h2">Two things we will never do to you.</h2>
-    <p class="so-intro">Written down, in public, so you can hold us to it.</p>
+    <div class="so-label">our promises</div>
+    <h2 class="so-h2">Two promises, in writing.</h2>
+    <p class="so-intro">Written down in public, so you can hold us to them.</p>
     <div class="so-vows">
       <div class="so-vow">
         <div class="so-num">I</div>
@@ -408,8 +409,8 @@ github: "https://github.com/AnarchySC"
       </div>
     </div>
     <div class="so-spirit">
-      <div><h4>Open source, all of it.</h4><p>The OS and its companion apps are developed in public. You can read exactly what the laptop does and doesn't do.</p></div>
-      <div><h4>No surveillance features.</h4><p>Ledger shows rules, refusals and time-in-app — the same view the student can see. No screenshots, no keylogging, no location, no reading of messages.</p></div>
+      <div><h4>Open source, all of it.</h4><p>The OS and its companion apps will be released as open source, with the code going public alongside the beta — so you'll be able to read exactly what the laptop does and doesn't do.</p></div>
+      <div><h4>No surveillance features.</h4><p>Ledger shows rules, refusals and time in each app — the same view the student can see. No screenshots, no keylogging, no location tracking, no message reading.</p></div>
       <div><h4>The student can see the rules.</h4><p>Every change lands in a history both sides can read. Trust is easier when nobody is guessing.</p></div>
       <div><h4>How the lights stay on.</h4><p>Optional support and convenience services for families who want them. The software itself is never the product.</p></div>
     </div>
@@ -430,12 +431,12 @@ github: "https://github.com/AnarchySC"
       <div class="so-phase">Now</div>
       <div class="so-mile now">
         <h3>Beta on the Framework Laptop 12 <span class="so-pill testing">in testing</span></h3>
-        <p>Secure Boot on, the setup wizard, themes, the app picker and Learn your Linux — dated test builds are being run on real hardware, and nothing ships until every one of them has been signed off in person.</p>
+        <p>Secure Boot on, the setup wizard, themes, the app picker and Learn your Linux. Dated test builds are running on real hardware, and nothing ships until a build has been signed off in person.</p>
       </div>
       <div class="so-phase">Next</div>
       <div class="so-mile">
         <h3>Quill <span class="so-pill building">building</span></h3>
-        <p>Pairing with Ledger, app windows, usage accounting, and the launch gate that politely says "not right now."</p>
+        <p>Pairing with Ledger, app hours, time-in-app accounting, and the launch gate that politely says "not right now."</p>
       </div>
       <div class="so-mile">
         <h3>Hours <span class="so-pill building">building</span></h3>
@@ -447,7 +448,7 @@ github: "https://github.com/AnarchySC"
       </div>
       <div class="so-mile">
         <h3>Website rules, per student <span class="so-pill building">building</span></h3>
-        <p>Focus, free and never apply to websites too — set per student and enforced on the laptop itself, not just inside one browser's settings.</p>
+        <p>The same focus / free / never rules, applied to websites — set per student and enforced by the laptop itself rather than by one browser's settings.</p>
       </div>
       <div class="so-mile">
         <h3>Learn your Linux, illustrated <span class="so-pill building">building</span></h3>
@@ -496,9 +497,9 @@ github: "https://github.com/AnarchySC"
   <div class="so-wrap">
     <svg class="so-initial" role="img" aria-label="Illuminated initial S"><use href="#soInitialS"/></svg>
     <h2 class="so-h2">Want in?</h2>
-    <p>The beta is private while it's being tested on real laptops. The build happens in the open, so you can watch it come together — and hold us to the promise above.</p>
+    <p>The beta is private while it's being tested on real laptops. When it opens up, the code opens with it — and you can hold us to the promises above.</p>
     <div class="so-ctas">
-      <a class="so-btn so-btn-primary" href="https://github.com/AnarchySC" target="_blank" rel="noopener">Follow the build on GitHub →</a>
+      <a class="so-btn so-btn-primary" href="https://github.com/AnarchySC" target="_blank" rel="noopener">Anarchy Games on GitHub →</a>
       <a class="so-btn so-btn-support" href="https://ko-fi.com/anarchygames" target="_blank" rel="noopener">Support this project &#9825;</a>
       <a class="so-btn so-btn-ghost" href="/projects/">All projects</a>
     </div>
@@ -513,6 +514,8 @@ github: "https://github.com/AnarchySC"
   }
   var t=document.getElementById('so-toast');
   if(t){ setTimeout(function(){ t.classList.add('show'); },1400); }
+  var d=document.getElementById('so-day');
+  if(d){ try{ d.textContent=new Date().toLocaleDateString('en-US',{weekday:'long'}); }catch(e){} }
 })();
 </script>
 </div>

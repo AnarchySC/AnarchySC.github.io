@@ -266,7 +266,6 @@ github: "https://github.com/AnarchySC"
         <a class="so-btn so-btn-ghost" href="https://github.com/AnarchySC" target="_blank" rel="noopener">Follow the build →</a>
       </div>
     </div>
-
     <div class="so-hero-right">
       <div class="so-window" aria-label="Preview of the Hours widget">
         <div class="so-titlebar">
@@ -394,7 +393,6 @@ github: "https://github.com/AnarchySC"
         </ul>
       </article>
     </div>
-
     <div class="so-flow" aria-label="How the companions work together">
       <div class="so-node"><span>desired state</span><b>Ledger</b><p>The parent writes how the laptop should be.</p></div>
       <div class="so-arrow" aria-hidden="true"></div>
@@ -443,7 +441,6 @@ github: "https://github.com/AnarchySC"
         <h3>Beta on the Framework Laptop 12 <span class="so-pill testing">in testing</span></h3>
         <p>Secure Boot on, the setup wizard, themes, the app picker and Learn your Linux — dated test builds are being run on real hardware, and nothing ships until every one of them has been signed off in person.</p>
       </div>
-
       <div class="so-phase">Next</div>
       <div class="so-mile">
         <h3>Quill <span class="so-pill building">building</span></h3>
@@ -465,7 +462,6 @@ github: "https://github.com/AnarchySC"
         <h3>Learn your Linux, illustrated <span class="so-pill building">building</span></h3>
         <p>Fifteen topics, each with a drawn picture of the real thing on screen and a try-it step.</p>
       </div>
-
       <div class="so-phase">Planned</div>
       <div class="so-mile so-featured">
         <h3>A Discord alternative <span class="so-pill planned">planned</span> <span class="so-pill only">ScrivenerOS only</span></h3>
@@ -483,7 +479,6 @@ github: "https://github.com/AnarchySC"
         <h3>Public update channels <span class="so-pill planned">planned</span></h3>
         <p>Signed images on a public registry with stable and testing channels, so your laptop's updates come from a source you can verify.</p>
       </div>
-
       <div class="so-phase">Later</div>
       <div class="so-mile later">
         <h3>Framework laptops, pre-installed <span class="so-pill later">later</span></h3>

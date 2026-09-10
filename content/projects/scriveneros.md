@@ -38,7 +38,6 @@ github: "https://github.com/AnarchySC"
 .scriveneros-page *{box-sizing:border-box}
 .scriveneros-page a{color:inherit}
 .so-wrap{max-width:var(--so-max);margin:0 auto;padding:0 24px}
-
 /* ---------- hero ---------- */
 .so-hero{padding:88px 0 76px;border-bottom:1px solid var(--so-border);position:relative;overflow:hidden}
 .so-hero::before{content:"";position:absolute;inset:0;pointer-events:none;
@@ -61,7 +60,6 @@ github: "https://github.com/AnarchySC"
 .scriveneros-page .so-btn-primary:hover{background:#ffe04d;color:#0a0a0a;box-shadow:0 0 26px rgba(255,208,0,.35)}
 .scriveneros-page .so-btn-ghost{color:var(--so-ink);border-color:var(--so-border-glow);background:transparent}
 .scriveneros-page .so-btn-ghost:hover{border-color:var(--so-gold);color:var(--so-gold)}
-
 /* Hours mock window */
 .so-window{background:var(--so-card);border:1px solid var(--so-border-glow);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,208,0,.05)}
 .so-titlebar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--so-border);font-family:var(--so-mono);font-size:12px;color:var(--so-muted)}
@@ -94,7 +92,6 @@ github: "https://github.com/AnarchySC"
 .so-ask{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:var(--so-muted)}
 .so-ask button{font-family:var(--so-mono);font-size:11px;letter-spacing:.08em;background:none;border:1px solid var(--so-border-glow);color:var(--so-ink);padding:7px 12px;cursor:pointer;transition:.2s}
 .so-ask button:hover{border-color:var(--so-gold);color:var(--so-gold)}
-
 /* ---------- sections ---------- */
 .so-section{padding:96px 0;border-top:1px solid var(--so-border)}
 .so-label{font-family:var(--so-mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--so-amber);margin-bottom:14px}
@@ -102,10 +99,8 @@ github: "https://github.com/AnarchySC"
 .so-h2{font-family:var(--so-serif);font-weight:500;font-size:clamp(32px,4vw,46px);line-height:1.1;color:var(--so-bright);margin:0 0 18px;max-width:700px}
 .so-intro{font-size:17px;color:var(--so-muted);max-width:660px;margin:0 0 48px}
 .so-intro a{color:var(--so-gold);text-decoration:none;border-bottom:1px solid rgba(255,208,0,.35)}
-
 /* illuminated mini initial */
 .so-cap{float:left;font-family:var(--so-serif);font-style:italic;font-size:42px;line-height:1;width:58px;height:58px;display:flex;align-items:center;justify-content:center;color:var(--so-gold);border:1px solid rgba(255,208,0,.5);box-shadow:inset 0 0 0 3px #0b1226,inset 0 0 0 4px rgba(250,163,7,.35);background:#0b1226;margin:4px 16px 6px 0;text-shadow:0 0 12px rgba(255,208,0,.35);flex:0 0 auto}
-
 /* two sides */
 .so-two{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--so-border);border:1px solid var(--so-border)}
 .so-two > div{background:var(--so-surface);padding:38px 36px}
@@ -115,7 +110,6 @@ github: "https://github.com/AnarchySC"
 .so-two .so-who{font-family:var(--so-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--so-amber);margin-bottom:14px}
 .so-two > div:nth-child(2) .so-who{color:var(--so-lapis)}
 .so-two > div:nth-child(2) .so-cap{color:var(--so-lapis);border-color:rgba(74,122,181,.6);text-shadow:0 0 12px rgba(74,122,181,.5);box-shadow:inset 0 0 0 3px #0b1226,inset 0 0 0 4px rgba(74,122,181,.35)}
-
 /* features */
 .so-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--so-border);border:1px solid var(--so-border)}
 .so-feat{background:var(--so-surface);padding:34px 30px 36px;transition:background .2s}
@@ -123,7 +117,6 @@ github: "https://github.com/AnarchySC"
 .so-feat .so-cap{float:none;margin:0 0 18px;width:52px;height:52px;font-size:36px}
 .so-feat h3{font-family:var(--so-serif);font-size:23px;font-weight:500;color:var(--so-bright);margin:0 0 10px;line-height:1.2}
 .so-feat p{margin:0;color:var(--so-muted);font-size:15px}
-
 /* companions */
 .so-comp{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .so-comp article{--accent:var(--so-gold);background:var(--so-card);border:1px solid var(--so-border-glow);padding:34px 30px;position:relative}
@@ -137,7 +130,6 @@ github: "https://github.com/AnarchySC"
 .so-lines{list-style:none;padding:0;margin:0;border-top:1px dashed var(--so-border)}
 .so-lines li{padding:9px 0;border-bottom:1px dashed var(--so-border);font-size:14px;color:var(--so-ink)}
 .so-lines li::before{content:"¶";color:var(--so-verm);font-family:var(--so-serif);margin-right:10px}
-
 /* how it works flow */
 .so-flow{margin-top:56px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch}
 .so-node{background:var(--so-surface);border:1px solid var(--so-border-glow);padding:18px 20px}
@@ -148,7 +140,6 @@ github: "https://github.com/AnarchySC"
 .so-arrow::after{content:"→"}
 .so-flow-note{margin-top:20px;font-size:14px;color:var(--so-muted);max-width:780px}
 .so-flow-note b{color:var(--so-ink);font-weight:500}
-
 /* promise */
 .so-promise{background:linear-gradient(180deg,var(--so-surface),var(--so-bg))}
 .so-vows{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px}
@@ -162,7 +153,6 @@ github: "https://github.com/AnarchySC"
 .so-spirit > div{background:var(--so-surface);padding:24px 26px}
 .so-spirit h4{font-family:var(--so-serif);font-size:20px;font-weight:500;color:var(--so-bright);margin:0 0 6px}
 .so-spirit p{margin:0;font-size:14px;color:var(--so-muted)}
-
 /* roadmap */
 .so-road{position:relative;padding-left:34px;max-width:820px}
 .so-road::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--so-gold),var(--so-border) 65%,transparent)}
@@ -184,7 +174,6 @@ github: "https://github.com/AnarchySC"
 .so-pill.planned{color:var(--so-lapis);border-color:rgba(74,122,181,.55)}
 .so-pill.later{color:var(--so-muted);border-color:var(--so-border-glow)}
 .so-pill.only{color:var(--so-verm);border-color:rgba(232,93,4,.55)}
-
 /* under the hood + closing */
 .so-hood{border-top:1px solid var(--so-border);padding:30px 0;font-family:var(--so-mono);font-size:12px;color:var(--so-muted);display:flex;flex-wrap:wrap;gap:10px 30px;line-height:1.7}
 .so-hood b{color:var(--so-ink);font-weight:500}
@@ -193,7 +182,6 @@ github: "https://github.com/AnarchySC"
 .so-close p{color:var(--so-muted);max-width:560px;margin:0 auto 30px;font-size:16px}
 .so-close .so-ctas{justify-content:center}
 .so-close .so-initial{width:96px;height:96px;flex-basis:96px;margin:0 auto 26px}
-
 /* responsive */
 @media (max-width:960px){
   .so-hero .so-wrap{grid-template-columns:1fr;gap:44px}
@@ -218,7 +206,6 @@ github: "https://github.com/AnarchySC"
 }
 @media (prefers-reduced-motion:reduce){.so-badge i{animation:none}.so-toast{transition:none}}
 </style>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <radialGradient id="soField" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#1b2c5e"/><stop offset="1" stop-color="#0a1024"/></radialGradient>
@@ -246,7 +233,6 @@ github: "https://github.com/AnarchySC"
     </symbol>
   </defs>
 </svg>
-
 <!-- ============ HERO ============ -->
 <section class="so-hero">
   <div class="so-wrap">
@@ -302,7 +288,6 @@ github: "https://github.com/AnarchySC"
     </div>
   </div>
 </section>
-
 <!-- ============ THE IDEA ============ -->
 <section class="so-section" id="idea">
   <div class="so-wrap">
@@ -327,7 +312,6 @@ github: "https://github.com/AnarchySC"
     </div>
   </div>
 </section>
-
 <!-- ============ FEATURES ============ -->
 <section class="so-section" id="features">
   <div class="so-wrap">
@@ -347,7 +331,6 @@ github: "https://github.com/AnarchySC"
     </div>
   </div>
 </section>
-
 <!-- ============ COMPANIONS ============ -->
 <section class="so-section" id="companions">
   <div class="so-wrap">
@@ -403,7 +386,6 @@ github: "https://github.com/AnarchySC"
     <p class="so-flow-note"><b>"In compliance" just means there's no difference left.</b> Ledger and Quill talk to each other directly over your home network first; a relay only steps in when you're away from home, and it only carries addresses — never what's being said.</p>
   </div>
 </section>
-
 <!-- ============ PROMISE ============ -->
 <section class="so-section so-promise" id="promise">
   <div class="so-wrap">
@@ -428,7 +410,6 @@ github: "https://github.com/AnarchySC"
     </div>
   </div>
 </section>
-
 <!-- ============ ROADMAP ============ -->
 <section class="so-section" id="roadmap">
   <div class="so-wrap">
@@ -487,7 +468,6 @@ github: "https://github.com/AnarchySC"
     </div>
   </div>
 </section>
-
 <!-- ============ UNDER THE HOOD ============ -->
 <section class="so-hood-wrap">
   <div class="so-wrap">
@@ -501,7 +481,6 @@ github: "https://github.com/AnarchySC"
     </div>
   </div>
 </section>
-
 <!-- ============ CLOSING ============ -->
 <section class="so-close">
   <div class="so-wrap">
@@ -514,7 +493,6 @@ github: "https://github.com/AnarchySC"
     </div>
   </div>
 </section>
-
 <script>
 (function(){
   var el=document.getElementById('so-count');
@@ -526,5 +504,4 @@ github: "https://github.com/AnarchySC"
   if(t){ setTimeout(function(){ t.classList.add('show'); },1400); }
 })();
 </script>
-
 </div>

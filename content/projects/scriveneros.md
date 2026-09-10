@@ -60,6 +60,11 @@ github: "https://github.com/AnarchySC"
 .scriveneros-page .so-btn-primary:hover{background:#ffe04d;color:#0a0a0a;box-shadow:0 0 26px rgba(255,208,0,.35)}
 .scriveneros-page .so-btn-ghost{color:var(--so-ink);border-color:var(--so-border-glow);background:transparent}
 .scriveneros-page .so-btn-ghost:hover{border-color:var(--so-gold);color:var(--so-gold)}
+.scriveneros-page .so-btn-support{color:var(--so-amber);border-color:rgba(250,163,7,.38);background:transparent}
+.scriveneros-page .so-btn-support:hover{border-color:var(--so-amber);background:rgba(250,163,7,.08);box-shadow:0 0 22px rgba(250,163,7,.18)}
+.so-support{margin-top:56px;padding:32px;border:1px solid var(--so-border-glow);background:linear-gradient(180deg,rgba(250,163,7,.05),transparent)}
+.so-support h4{font-family:var(--so-mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--so-amber);margin:0 0 12px}
+.so-support p{margin:0 0 20px;max-width:64ch;color:var(--so-ink)}
 /* Hours mock window */
 .so-window{background:var(--so-card);border:1px solid var(--so-border-glow);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,208,0,.05)}
 .so-titlebar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--so-border);font-family:var(--so-mono);font-size:12px;color:var(--so-muted)}
@@ -408,6 +413,11 @@ github: "https://github.com/AnarchySC"
       <div><h4>The student can see the rules.</h4><p>Every change lands in a history both sides can read. Trust is easier when nobody is guessing.</p></div>
       <div><h4>How the lights stay on.</h4><p>Optional support and convenience services for families who want them. The software itself is never the product.</p></div>
     </div>
+    <div class="so-support">
+      <h4>Support the build</h4>
+      <p>ScrivenerOS is free and stays free, so the costs sit on our side of the table &mdash; the reference laptop it&rsquo;s tested on, and hosting the public update channels once they open. If you&rsquo;d like to help carry those, it counts for a lot at this stage.</p>
+      <a class="so-btn so-btn-support" href="https://ko-fi.com/anarchygames" target="_blank" rel="noopener">Support this project &#9825;</a>
+    </div>
   </div>
 </section>
 <!-- ============ ROADMAP ============ -->
@@ -489,6 +499,7 @@ github: "https://github.com/AnarchySC"
     <p>The beta is private while it's being tested on real laptops. The build happens in the open, so you can watch it come together — and hold us to the promise above.</p>
     <div class="so-ctas">
       <a class="so-btn so-btn-primary" href="https://github.com/AnarchySC" target="_blank" rel="noopener">Follow the build on GitHub →</a>
+      <a class="so-btn so-btn-support" href="https://ko-fi.com/anarchygames" target="_blank" rel="noopener">Support this project &#9825;</a>
       <a class="so-btn so-btn-ghost" href="/projects/">All projects</a>
     </div>
   </div>

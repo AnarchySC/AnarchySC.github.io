@@ -1,6 +1,6 @@
 ---
 title: "Cassette Future Magazine"
-description: "Sci-fi web magazine set in Year 2935. Galactic news, culture, and the Cosmogirl of the Week."
+description: "Sci-fi web magazine set in Year 2935. Galactic news and culture. The articles are fake, the ideas are 100% real."
 weight: 5
 icon: "&#128240;"
 status: "active"

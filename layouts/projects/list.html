@@ -13,6 +13,9 @@
 
   <div class="project-grid">
     {{- range .Pages.ByWeight }}
+    {{- /* source_private: the repo isn't public yet, so its links would 404 */}}
+    {{- $private := .Params.source_private }}
+    {{- $repo := .Params.github }}
     <a class="project-card" href="{{ if .Content }}{{ .Permalink }}{{ else }}{{ with .Params.demo }}{{ . }}{{ else }}{{ with .Params.github }}{{ . }}{{ else }}#{{ end }}{{ end }}{{ end }}"{{ if not .Content }} target="_blank" rel="noopener"{{ end }}>
       <div class="project-card-header">
         <h3>{{ .Title }}</h3>
@@ -25,11 +28,17 @@
         {{- end }}
       </div>
       <div class="links">
-        {{- with .Params.github }}
+        {{- with $repo }}
+        {{- if $private }}
+        <span class="project-link" aria-disabled="true" style="opacity:.75;cursor:default">Source &middot; opens at v1</span>
+        {{- else }}
         <span class="project-link" onclick="event.stopPropagation(); window.open('{{ . }}', '_blank');">Source</span>
         {{- end }}
+        {{- end }}
         {{- with .Params.demo }}
+        {{- if not (and $private $repo (hasPrefix . $repo)) }}
         <span class="project-link" onclick="event.stopPropagation(); window.open('{{ . }}', '_blank');">Demo</span>
+        {{- end }}
         {{- end }}
       </div>
     </a>

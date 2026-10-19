@@ -7,5 +7,6 @@ icon: "&#127909;"
 status: "released"
 tech: ["Bash", "MakeMKV", "ffmpeg VAAPI", "udev"]
 github: "https://github.com/AnarchySC/elephcinema"
+source_private: true  # repo still private; set to false when it goes public
 ---
 <!-- product page rendered by layouts/projects/elephcinema.html -->

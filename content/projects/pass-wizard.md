@@ -6,6 +6,7 @@ icon: "&#128302;"
 status: "active"
 tech: ["HTML", "CSS", "JavaScript", "Python", "Claude API", "ollama"]
 github: "https://github.com/AnarchySC/pass-wizard"
+source_private: true  # repo still private; set to false when it goes public
 cta_url: "https://github.com/AnarchySC/pass-wizard"
 cta_label: "Fork on GitHub"
 ---

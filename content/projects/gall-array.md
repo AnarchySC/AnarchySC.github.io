@@ -7,5 +7,6 @@ icon: "&#128444;"
 status: "released"
 tech: ["Python", "PyQt5", "Snap"]
 github: "https://github.com/AnarchySC/galleray"
+source_private: true  # repo still private; set to false when it goes public
 ---
 <!-- product page rendered by layouts/projects/gall-array.html -->

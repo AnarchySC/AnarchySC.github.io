@@ -7,5 +7,6 @@ icon: "&#128272;"
 status: "released"
 tech: ["Python", "FIDO2", "gocryptfs", "GTK4"]
 github: "https://github.com/AnarchySC/cryptortoise"
+source_private: true  # repo still private; set to false when it goes public
 ---
 <!-- product page rendered by layouts/projects/cryptortoise.html -->

@@ -2,10 +2,14 @@
 title: "Gunkhana Devlog 01: \"Basically Gun Game\" (It Was Not Gun Game)"
 date: 2026-09-11
 tags: ["gunkhana", "devlog"]
-description: "A 2v2 arena shooter starts with a one-line pitch, a misunderstanding, and 70 tasks."
+description: "Call of Duty took our favourite mode away, so my brother asked for our own. It starts with a misunderstanding and 70 tasks."
 ---
 
-The pitch I typed was one line: a really simple 2v2 small-arena FPS, "basically gun game from Modern Warfare."
+This game exists because of a grudge.
+
+My brothers and I played Gunfight in Call of Duty. Then it got pulled from the mini-game rotation, and we were pissed. One of my brothers asked the obvious question: could we just make our own?
+
+So the pitch I typed was one line: a really simple 2v2 small-arena FPS, "basically gun game from Modern Warfare."
 
 I did not mean Gun Game. I meant **Gunfight**: two against two, everyone gets the same random loadout each round, no respawns, first to six. The build agent (Claude, running in a loop I call the Game Forge) asked which one I meant before writing a line. Good thing, or this would be a very different blog.
 
